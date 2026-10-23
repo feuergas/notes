@@ -8,7 +8,6 @@
   teachers: ("Prof. Tamás Szamuely",),
   authors: ("Leonardo Gagliardoni",),
   year: "2026/2027",
-  cheatsheet: none,
 )
 
 = $p$-adic extensions
