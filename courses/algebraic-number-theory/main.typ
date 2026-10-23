@@ -10,6 +10,10 @@
   year: "2026/2027",
 )
 
-= $p$-adic extensions
+= $p$-adic number fields
 
 #include "chapters/padic-extensions.typ"
+
+
+
+#metadata(none) <missing-ref>
