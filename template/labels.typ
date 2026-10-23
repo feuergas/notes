@@ -7,6 +7,7 @@
     definition: "Definition",
     example: "Example",
     lemma: "Lemma",
+    proof: "Proof",
     proposition: "Proposition",
     theorem: "Theorem",
 
@@ -27,6 +28,7 @@
     definition: "Definizione",
     example: "Esempio",
     lemma: "Lemma",
+    proof: "Dimostrazione",
     proposition: "Proposizione",
     theorem: "Teorema",
 

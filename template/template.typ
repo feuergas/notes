@@ -37,6 +37,8 @@
     }
   )
 
+  set par(justify: true)
+
   
   set text(font: "Noto Sans")
 

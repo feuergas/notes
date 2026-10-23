@@ -27,3 +27,6 @@
   let n = calc.min(arr.len(), len)
   arr.slice(0, n) + range(0, len - n).map(_ => value)
 }
+
+// Proof conclusion symbol
+#let qed = $square$

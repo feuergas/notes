@@ -20,6 +20,12 @@
   stroke: intuition-stroke,
 )
 
+#let proof-style = (
+  color: default-color,
+  fill: none,
+  stroke: default-stroke,
+)
+
 #let default-style = (
   color: default-color,
   fill: default-fill,
@@ -34,6 +40,7 @@
   proposition: result-style,
   corollary: result-style,
   example: intuition-style,
+  proof: proof-style,
 )
 
 // generic theorem block
@@ -111,7 +118,41 @@
   ..args
 )
 
+#let example(..args) = new-theorem(
+  kind: "example",
+  ..args
+)
+
 #let algorithm(..args) = new-theorem(
   kind: "algorithm",
   ..args
 )
+
+
+// proof block
+#let proof(
+  kind: "proof",
+  body
+) = context {
+  let style = environment-styles.at(
+    kind,
+    default: default-style
+  )
+
+  let lang = text.lang
+  let label = labels.at(lang, default: labels.en)
+    .at(kind, default: titlecase(kind))
+
+  block(
+    above: 1em,
+    below: 1em,
+  )[
+    #align(left)[
+      #text(style: "italic", weight: "semibold")[
+        #label:
+      ]
+      #body 
+      #qed
+    ]
+  ]
+}
