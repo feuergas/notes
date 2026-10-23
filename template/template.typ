@@ -122,7 +122,7 @@
 
     #v(1fr)
     
-    #l.last-update: #fmt(datetime.today(), locale: "it", date-fields: "YMD", length: "long")
+    #l.last-update: #fmt(datetime.today(), locale: l.date-locale, date-fields: "YMD", length: "long")
   ]
   pagebreak()
   // table of contents

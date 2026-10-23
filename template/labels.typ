@@ -1,5 +1,7 @@
 #let labels = (
   en: (
+    date-locale: "en",
+
     algorithm: "Algorithm",
     corollary: "Corollary",
     definition: "Definition",
@@ -18,6 +20,8 @@
     university: "University of Pisa",
   ),
   it: (
+    date-locale: "it",
+
     algorithm: "Algoritmo",
     corollary: "Corollario",
     definition: "Definizione",
