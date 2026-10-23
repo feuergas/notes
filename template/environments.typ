@@ -47,6 +47,7 @@
 #let new-theorem(
   kind: "theorem",
   title: none,
+  numbering: true,
   body
 ) = context {
   let style = environment-styles.at(
@@ -72,7 +73,7 @@
         #text(fill: style.color)[
           #text(weight: "bold")[
             #label
-            #context counter(figure.where(kind: kind)).display()
+            #if numbering [#context counter(figure.where(kind: kind)).display()]
           ]
           #if title != none [
             (#title)
