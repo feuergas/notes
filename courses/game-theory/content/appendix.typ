@@ -1,6 +1,6 @@
 #import "../prelude.typ": *
 
-#definition("Ordine lessicografico")[
+#definition(title: "Ordine lessicografico")[
   Dati due vettori $a,b in RR^m$ vale $a >=_"lex" b$ se $a = b$ oppure esiste un $k$ tale che $a_i = b_i$ per $i < k$ e $a_k > b_k$.
 ] <def:lexicographic-order>
 
@@ -8,7 +8,7 @@ L'ordine lessicografico è un ordine totale, ma non continuo, su $RR^m$.
 
 == Richiami di topologia
 
-#definition("Proprietà degli insiemi")[
+#definition(title: "Proprietà degli insiemi")[
   Sia $S subset.eq RR^m$. L'insieme $S$ si dice
   1. #term[aperto] se per ogni $x in S$ esiste un raggio $r > 0$ tale che $B_r (x) subset.eq S$
   2. #term[chiuso] se il complementare $RR^n without S$ è aperto, equivalentemente se è chiuso per successioni
@@ -20,7 +20,7 @@ L'ordine lessicografico è un ordine totale, ma non continuo, su $RR^m$.
   $
 ]
 
-#theorem(title: "Teorema dei valori estremi", authors: "Bolzano, Weierstrass")[
+#theorem(title: "Teorema dei valori estremi - Bolzano, Weierstrass")[
   Se $S subset.eq RR^n$ è compatto ogni funzione continua $S -> RR$ ammette massimo e minimo in $S$.
 ] <thm:weierstrass>
 
@@ -33,7 +33,7 @@ L'ordine lessicografico è un ordine totale, ma non continuo, su $RR^m$.
 
 === Convessità e concavità
 
-#definition("Funzioni convesse e concave")[
+#definition(title: "Funzioni convesse e concave")[
   Sia $S subset.eq RR^m$ un insieme convesso. Una funzione $f : RR^m -> RR$ è detta #term[convessa (risp. concava)] su $S$ se vale
   $
   f (lambda x + (1 - lambda) y) <=_("risp." >=) lambda f (x) + (1 - lambda) f (y)
@@ -65,7 +65,7 @@ Le funzioni convesse e concave possono essere caratterizzate in vari modi equiva
   è un insieme convesso per ogni $alpha in RR$.
 ]
 
-#definition("Funzioni quasi-convesse e quasi-concave")[
+#definition(title: "Funzioni quasi-convesse e quasi-concave")[
   Sia $S subset.eq RR^m$ un insieme convesso. Una funzione $f : RR^m -> RR$ è detta #term[quasi-convessa] su $S$ se vale
   $
   f (lambda x + (1 - lambda) y) <= max{f (x), f (y)}
@@ -79,7 +79,7 @@ Le funzioni convesse e concave possono essere caratterizzate in vari modi equiva
   per ogni $x,y in S, lambda in [0,1]$. Equivalentemente è quasi-concava se il sopralivello $S_alpha (f)$ è convesso.
 ]
 
-#theorem(title: "Teorema di punto fisso", authors: "Kakutani 1941")[
+#theorem(title: "Teorema di punto fisso - Kakutani 1941")[
   Sia $K subset.eq RR^m$ un insieme convesso e compatto. Se la mappa $T : K arrows.rr K$ soddisfa:
   1. l'immagine $T(x)$ è un insieme non vuoto, chiuso e convesso per ogni $x in K$
   2. il grafico $"graph" T={(x,y) in K times K : y in T(x)}$ è chiuso
@@ -88,7 +88,7 @@ Le funzioni convesse e concave possono essere caratterizzate in vari modi equiva
 
 La nozione di concavità per una funzione può essere rafforzata nei seguenti modi:
 
-#definition("Funzioni strettamente e fortemente concave")[
+#definition(title: "Funzioni strettamente e fortemente concave")[
   Dato $S subset.eq RR^m$ convesso una funzione $f : RR^m -> RR$ è
   - #term[concava] su $S$ se per ogni $x,y in S, lambda in [0,1]$ vale
   $
@@ -142,7 +142,7 @@ Per la ricerca dei minimi il discorso è del tutto analogo, ricordando che $x^*$
 
 Un metodo classico per la ricerca del massimo è scegliere un punto del dominio e muoversi di piccoli passi nella direzione del gradiente della funzione. Per assicurarci di rimanere nel dominio, definiamo la proiezione:
 
-#definition("Proiezione")[
+#definition(title: "Proiezione")[
   Siano $y in RR^m$ e $S subset.eq RR^m$ un insieme chiuso e convesso. La #term[proiezione di $y$ su $S$] è il punto di $S$ più vicino a $y$, cioè $
   P_S (y) = arg min {norm(x - y)_#text(size: .8em)[2]^2 : x in S}
   $

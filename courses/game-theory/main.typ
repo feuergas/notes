@@ -10,7 +10,6 @@
   teachers: ("Prof. Giancarlo Bigi",),
   authors: ("Leonardo Gagliardoni",),
   year: "2024/2025",
-  cheatsheet: none,
 )
 
 = Teoria

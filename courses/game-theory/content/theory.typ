@@ -10,7 +10,7 @@ Un *gioco* è la descrizione tramite un modello di un'interazione strategica tra
 
 Spesso per indicare le preferenze si utilizza una funzione detta *funzione di utilità*. Possiamo quindi definire un primo modo formale di rappresentare un gioco:
 
-#definition("Gioco in forma normale")[
+#definition(title: "Gioco in forma normale")[
   Un gioco espresso in #term[forma normale] (o #term[forma strategica]) è il dato di
   - Un insieme di giocatori $N$ finito;
   - L'insieme delle strategie $S=product_i S_i$ dove ogni fattore $S_i$ è l'insieme delle strategie del giocatore $i$;
@@ -25,7 +25,7 @@ Chiamiamo $x_(-i)=(x_j)_(j != i)$ l'insieme dei profili di strategia dei giocato
 
 Un altro modo che talvolta può risultare utile, perlopiù nei giochi finiti, è elencare tramite un albero tutte le possibili mosse.
 
-#definition("Gioco in forma estesa")[
+#definition(title: "Gioco in forma estesa")[
   Un gioco espresso in #term[forma estesa] è rappresentato da un albero di enumerazione, in cui ogni nodo rappresenta uno stato del gioco e appartiene al giocatore di turno, e da cui gli archi uscenti rappresentano le possibili mosse del giocatore.
 ]
 
@@ -35,7 +35,7 @@ Un gioco in forma estesa può essere convertito in forma normale assegnando ad o
 
 Supponiamo ci sia un solo giocatore che ha delle preferenze su una lista di possibili eventi mutualmente esclusivi.
 
-#definition("Lotteria")[
+#definition(title: "Lotteria")[
   Una #term[lotteria $L$] è il dato di $n$ eventi ordinati per preferenza appaiati con le loro probabilità di avvenire. Formalmente
   $
   L = [(A_1,p_1),dots,(A_n,p_n)] " dove " p_i >= 0, sum_i p_i=1
@@ -62,7 +62,7 @@ $
 
 Se il sistema soddisfa queste proprietà allora può essere modellato con funzioni di utilità.
 
-#theorem(title: "Teorema dell'utilità", authors: "von Neumann, Morgenstern 1944")[
+#theorem(title: "Teorema dell'utilità - von Neumann, Morgenstern 1944")[
   Se l'ordine sulle lotterie $(cal(L),<=)$ soddisfa _continuità, monotonia, composizione_ allora esiste una funzione $u:cal(L)-> RR$ tale che
   $
   L_1<= L_2 <==> u(L_1)<= u(L_2)
@@ -77,7 +77,7 @@ Corrisponde a far collassare tutti gli eventi tra il primo e l'ultimo tramite la
 
 === Giochi a somma zero
 
-#definition("Gioco a somma zero")[
+#definition(title: "Gioco a somma zero")[
   Un gioco a due giocatori è #term[a somma zero] se vale
   $
   u_1(x_1,x_2)+u_2(x_1,x_2)=0
@@ -85,7 +85,7 @@ Corrisponde a far collassare tutti gli eventi tra il primo e l'ultimo tramite la
   per ogni profilo di strategie $(x_1,x_2) in S$.
 ]
 
-#definition("Gioco strettamente competitivo")[
+#definition(title: "Gioco strettamente competitivo")[
   Un gioco a due giocatori è #term[strettamente competitivo] se vale
   $
   u_1(x_1,x_2)<_> u_1(x'_1,x'_2) <==> u_2(x_1,x_2) >_< u_2(x'_1,x'_2)
@@ -99,7 +99,7 @@ Consideriamo un gioco a somma zero: vale $u_2=-u_1$ e quindi è sufficiente cons
 
 === Simmetria
 
-#definition("Gioco simmetrico")[
+#definition(title: "Gioco simmetrico")[
   Un gioco finito è detto #term[simmetrico] se tutti i giocatori hanno lo stesso numero di strategie e ogni permutazione di giocatori non cambia il gioco.
 ]
 
@@ -109,7 +109,7 @@ In particolare se il gioco è a somma zero allora è simmetrico se e solo se la 
 
 Supponiamo di avere un gioco finito e assegnamo ad ogni strategia una probabilità di esecuzione, così che ogni profilo di probabilità dia vita ad una nuova strategia. In termini astratti, stiamo considerando l'inviluppo convesso generato dalle strategie base (dette #term[pure]) come il nuovo insieme delle strategie.
 
-#definition("Gioco esteso a strategie miste")[
+#definition(title: "Gioco esteso a strategie miste")[
   Sia $G=(N,S_i,u_i)$ un gioco finito in forma normale. Poniamo
   $
   Delta (S_i)&={sigma_i:S_i->[0,1]:sum_(x_i in S_i)sigma_i (x_i)=1}\
@@ -126,7 +126,7 @@ Notiamo che il gioco originale è contenuto in $G_(m e)$ dove a ogni strategia $
 
 === Restrizione
 
-#definition("Gioco ristretto")[
+#definition(title: "Gioco ristretto")[
   Un gioco $(N,T_i,v_i)$ è una #term[restrizione] del gioco $(N,S_i,u_i)$ se valgono
   - $T_i != emptyset$ e $T_i subset.eq S_i$
   - $v_i (x) = u_i (x)$ per ogni $x in T=T_1 times dots times T_n$
@@ -136,7 +136,7 @@ Notiamo che il gioco originale è contenuto in $G_(m e)$ dove a ogni strategia $
 
 Una possibile nozione di equilibrio è un profilo di strategie per cui nessun giocatore giova dal cambiare strategia, a patto che gli altri mantengano la loro invariata.
 
-#definition("Equilibrio di Nash")[
+#definition(title: "Equilibrio di Nash")[
   Un #term[equilibrio di Nash] è un profilo di strategie $x^* in S$ tale che $x_i^*$ sia una #term[miglior risposta] a $x_(-i)^*$ per ogni giocatore $i$, cioè
   $
   x_i^*=arg max{u_i (x_i,x_(-i)^*):x_i in S_i}
@@ -213,7 +213,7 @@ Siano $h_i (p,q)= p^T A_i q$ le funzioni di utilità in strategie miste per le s
 
 Un possibile modo di giocare è quello di scegliere la miglior risposta ai casi peggiori possibili, così da massimizzare la propria utilità in ogni caso.
 
-#definition("Strategia di sicurezza")[
+#definition(title: "Strategia di sicurezza")[
   Poniamo
   $
   w_i (x_i)=inf{u_i (x_i,x_(-i)):x_(-i) in S_(-i)}
@@ -234,7 +234,7 @@ overline(v)& =inf{sup{u(x_1,x_2):x_1 in S_1}:x_2 in S_2}
 $
 In generale vale $underline(v)<=overline(v)$.
 
-#definition("Minimax")[
+#definition(title: "Minimax")[
   Nel caso in cui $underline(v)=overline(v)$ questo è detto #term[valore] del gioco e le strategie di sicurezza sono dette #term[strategie di minimax].
 ]
 
@@ -275,7 +275,7 @@ I due problemi di ottimizzazione lineare così ottenuti sono duali, perciò il t
 
 L'idea base del #link(<ex:duopoly>)[duopolio di Cournot] può essere trasformata in un algoritmo dove a ogni iterazione il giocatore cambia strategia in favore di una miglior risposta.
 
-#algorithm("Algoritmo distribuito sincrono (o di tipo Jacobi)")[
+#algorithm(title: "Algoritmo distribuito sincrono (o di tipo Jacobi)")[
   1. Scegli un punto iniziale $x^0 in S$.
   2. Poni $k colon.eq 0$.
   3. Ripeti:
@@ -290,7 +290,7 @@ Ogni giocatore modifica simultaneamente la propria strategia. In genere non è d
 
 Un altro possibile algoritmo è di permettere ad un giocatore alla volta di modificare la propria strategia:
 
-#algorithm("Algoritmo distribuito asincrono (o di tipo Gauss-Seidel)")[
+#algorithm(title: "Algoritmo distribuito asincrono (o di tipo Gauss-Seidel)")[
   1. Scegli un punto iniziale $x^0 in S$.
   2. Poni $k colon.eq 0$.
   3. Ripeti:
@@ -318,7 +318,7 @@ I giochi finiti estesi a strategie miste rientrano nell'ultimo caso, ma in gener
 
 L'esistenza degli equilibri di Nash spesso si riduce ad un problema di analisi, e sotto certe ipotesi di regolarità questa ci viene incontro garantendo teoremi di esistenza. Ne vediamo alcuni.
 
-#theorem(authors: "von Neumann 1928")[
+#theorem(title: "von Neumann 1928")[
   Sia $({1,2},{S_1,S_2},u)$ un gioco a somma zero. Se valgono:
   1. Gli insiemi $S_i subset.eq RR^(m_i)$ sono convessi e compatti
   2. L'utilità $u$ è continua
@@ -340,7 +340,7 @@ $
 come l'insieme delle migliori risposte del giocatore $i$ al profilo di strategie $x_(-i)$.
 Similmente poniamo $R(x)= R_1 (x_(-1)) times dots times R_n (x_(-n))$ il sottoinsieme delle migliori risposte di ogni giocatore al profilo $x in S$. Un equilibrio di Nash $x^*$ è così caratterizzato dalla proprietà $x^* in R(x^*)$, cioè è punto fisso di $R$. Possiamo quindi applicare il #link(<thm:kakutani>)[teorema di Kakutani] per garantire l'esistenza di equilibri di Nash sotto le giuste condizioni.
 
-#theorem(authors: "Nikaido, Isoda 1955")[
+#theorem(title: "Nikaido, Isoda 1955")[
   Sia $(N,S_i,u_i)$ un gioco in forma normale. Se per ogni giocatore $i in N$ valgono:
   1. l'insieme $S_i subset.eq RR^(m_i)$ è convesso e compatto
   2. la funzione utilità $u_i$ è superiormente semicontinua
@@ -353,7 +353,7 @@ In particolare l'estensione a strategie miste di un gioco finito soddisfa le ipo
 
 L'unicità di un eventuale equilibrio di Nash può essere garantita tramite condizioni di concavità (vedi #link(<def:concave>)[concavità stretta e forte]).
 
-#definition("Gioco diagonalmente strettamente concavo")[
+#definition(title: "Gioco diagonalmente strettamente concavo")[
   Sia $(N,S_i,u_i)$ un gioco in forma normale e supponiamo che ogni $u_i (dot,x_(-i))$ sia differenziabile. Il gioco è detto #term[diagonalmente strettamente concavo su $S$] se vale
   $
   sum_(i in N) (nabla_i u_i (x_i, x_(-i)) - nabla_i u_i (x'_i, x'_(-i)))^T (x'_i - x_i) > 0
@@ -363,7 +363,7 @@ L'unicità di un eventuale equilibrio di Nash può essere garantita tramite cond
 
 Definiamo il gradiente di un gioco, invariante che vedremo risultare utile in diverse occasioni.
 
-#definition("Gradiente di un gioco")[
+#definition(title: "Gradiente di un gioco")[
   La funzione $F : RR^m -> RR^m$, dove $m = m_1 + dots + m_n$, definita come
   $
   F (x) = mat(
@@ -384,7 +384,7 @@ Il gradiente ci fornisce una condizione sufficiente perché il gioco sia diagona
 
 Un gioco diagonalmente strettamente concavo garantisce che ogni $u_i (dot, x_(-i))$ sia strettamente concava su $S_i$ (anche se non è una condizione necessaria).
 
-#theorem(title: "Unicità degli equilibri di Nash", authors: "Rosen 1965")[
+#theorem(title: "Unicità degli equilibri di Nash - Rosen 1965")[
   Se un gioco è diagonalmente strettamente concavo su $S$ allora ammette al più un equilibrio di Nash.
 ]
 
@@ -402,7 +402,7 @@ I punti di massimo di una funzione possono essere caratterizzati tramite la disu
 
 Possiamo quindi applicare l'algoritmo di proiezione per cercare equilibri di Nash.
 
-#algorithm("Algoritmo del gradiente")[
+#algorithm(title: "Algoritmo del gradiente")[
   1. Scegli un punto iniziale $x^0 in S$ e fissa $t > 0$.
   2. Poni $k colon.eq 0$.
   3. Ripeti:
@@ -450,7 +450,7 @@ Sono queste le proprietà che garantiscono la convergenza, quindi possiamo enunc
 
 Con una lieve modifica dell'algoritmo possiamo ulteriormente indebolire le ipotesi che garantiscono la convergenza.
 
-#algorithm("Algoritmo extra-gradiente")[
+#algorithm(title: "Algoritmo extra-gradiente")[
   1. Scegli un punto iniziale $x^0 in S$ e fissa $t > 0$.
   2. Poni $k colon.eq 0$.
   3. Ripeti:
@@ -478,7 +478,7 @@ Ad esempio se $S$ è compatto e $F$ è continua allora una soluzione $hat(x)$ di
 
 Raffinando ulteriormente l'algoritmo è possibile indebolire ancora le ipotesi di convergenza.
 
-#algorithm("Algoritmo extra-gradiente dell'iperpiano")[
+#algorithm(title: "Algoritmo extra-gradiente dell'iperpiano")[
   1. Scegli un punto iniziale $x^0 in S$ e fissa $t > 0, theta in (0,1)$.
   2. Poni $k colon.eq 0$.
   3. Ripeti:
@@ -507,7 +507,7 @@ La costruzione dell'iperpiano $H_k$ serve a fargli separare $x^k$ dalle soluzion
 
 Definiamo un altro invariante che ci è utile per la ricerca di equilibri di Nash.
 
-#definition("Bifunzione aggregata di Nikaido-Isoda")[
+#definition(title: "Bifunzione aggregata di Nikaido-Isoda")[
   Dato un gioco $(N,S_i,u_i)$ la sua #term[bifunzione aggregata di Nikaido-Isoda] è $
   f(x,y) = sum_(i in N) [u_i (x_i, x_(-i)) - u_i (y_i, x_(-i))]
   $
@@ -544,7 +544,7 @@ A differenza della nozione più forte, avere le funzioni di utilità $u_i (dot, 
 
 Ancora una volta possiamo sfruttare un algoritmo per cercare soluzioni alla disuguaglianza di Ky Fan.
 
-#algorithm("Algoritmo di rilassamento")[
+#algorithm(title: "Algoritmo di rilassamento")[
   #align(center)[#emph[Krawczyk, Uryasev 2000]]
   1. Scegli un punto iniziale $x^0 in S$ e fissa dei ${t_k} subset.eq RR_+$.
   2. Poni $k colon.eq 0$.
@@ -613,7 +613,7 @@ Possiamo riformulare il teorema di convergenza in termini di $V(x)$ aggiungendo 
 
 L'algoritmo di rilassamento può essere migliorato nel seguente modo:
 
-#algorithm("Algoritmo di ascesa")[
+#algorithm(title: "Algoritmo di ascesa")[
   1. Scegli un punto iniziale $x^0 in S$ e fissa $eta > 0, theta in (0,1)$.
   2. Poni $k colon.eq 0$.
   3. Ripeti:
@@ -645,7 +645,7 @@ Ancora una volta se le $u_i (dot, x_(-i))$ sono (uniformentente fortemente) conc
 
 Può capitare che una strategia per un giocatore sia sempre preferibile alle altre, indipendentemente da quelle degli avversari.
 
-#definition("Strategie dominanti")[
+#definition(title: "Strategie dominanti")[
   Sia $(N,S_i,u_i)$ un gioco in forma normale.
   1. Una strategia $x_i^* in S_i$ è #term[dominante] (per il giocatore $i$) se è una miglior risposta ad ogni profilo di strategie $x_(-i) in S_(-i)$.
   2. Una strategia $x_i^* in S_i$ è #term[strettamente dominante] (per il giocatore $i$) se è l'_unica_ miglior risposta ad ogni profilo di strategie $x_(-i) in S_(-i)$.
@@ -653,7 +653,7 @@ Può capitare che una strategia per un giocatore sia sempre preferibile alle alt
 
 Due strategie dominanti sono equivalenti, cioè forniscono al giocatore la stessa utilità. Una strategia strettamente dominante, se esiste, è unica e perciò rende il giocatore prevedibile.
 
-#definition("Strategie dominanti")[
+#definition(title: "Strategie dominanti")[
   Un profilo di strategie $x^* in S$ è #term[(strettamente) dominante] se per ogni giocatore $i$ la strategia $x_i^* in S_i$ è (strettamente) dominante.
 ]
 
@@ -664,7 +664,7 @@ Due strategie dominanti sono equivalenti, cioè forniscono al giocatore la stess
 
 Così come ci possono essere strategie preferibili alle altre, a volte esistono strategie che non sono preferibili perché ne esiste almeno una migliore.
 
-#definition("Strategie dominate")[
+#definition(title: "Strategie dominate")[
   Una strategia $overline(x)_i in S_i$ è #term[strettamente dominata] se esiste un'altra strategia $hat(x)_i in S_i$ tale che
   $
   u_i (hat(x)_i, x_(-i)) > u_i (overline(x)_i, x_(-i))
@@ -674,7 +674,7 @@ Così come ci possono essere strategie preferibili alle altre, a volte esistono 
 
 Una strategia strettamente dominata non ha ragione di essere giocata.
 
-#definition("Strategie dominate")[
+#definition(title: "Strategie dominate")[
   Una strategia $overline(x)_i in S_i$ è #term[debolmente dominata] se esiste un'altra strategia $hat(x)_i in S_i$ tale che
   $
   u_i (hat(x)_i, x_(-i)) >= u_i (overline(x)_i, x_(-i))#h(1em)"per ogni" x_(-i) in S_(-i)
@@ -717,7 +717,7 @@ La stessa conclusione non vale per la restrizione eliminando le strategie debolm
 
 Un altro modo di indebolire la nozione di strategia strettamente dominata preservandone la proprietà di conservazione di equilibri di Nash è il seguente:
 
-#definition("Mai miglior risposte")[
+#definition(title: "Mai miglior risposte")[
   Una strategia $x_i^* in S_i$ è una #term[mai miglior risposta] se non è mai una miglior risposta, cioè $x_i^* in.not R_i (x_(-i))$ per ogni $x_(-i) in S_(-i)$.
 ]
 
@@ -739,7 +739,7 @@ Quindi in un certo senso l'essere mai miglior risposta è la condizione giusta p
 
 === Potenziale
 
-#definition("Gioco a potenziale esatto")[
+#definition(title: "Gioco a potenziale esatto")[
   #align(center)[#emph[Monderer-Shapley 1996]]
   Un gioco è #term[a potenziale esatto] se esiste una funzione #term[potenziale esatto] $P : S -> RR$ tale che per ogni $i$ valga
   $
@@ -768,7 +768,7 @@ In pratica è sufficiente controllare solo i cicli di lunghezza $ell = 4$.
 
 I giochi a potenziale esatto sono isomorfi ad un'altra classe di giochi chiamata giochi di congestione.
 
-#definition("Gioco di congestione")[
+#definition(title: "Gioco di congestione")[
   #align(center)[#emph[Rosenthal 1973]]
   Un #term[gioco di congestione $(N,cal(T)_i,v_i)$] rappresenta un insieme di giocatori che devono condividere un insieme $F$ di strutture. La strategia per ogni giocatore $i$ consiste nella scelta di un sottoinsieme $A_i subset.eq F$ di strutture da controllare. Le utilità sono del tipo
   $
@@ -787,7 +787,7 @@ I giochi a potenziale esatto sono isomorfi ad un'altra classe di giochi chiamata
 
 Una generalizzazione del potenziale esatto è il potenziale ordinale, che si limita a rispettare l'ordine tra le funzioni di utilità.
 
-#definition("Gioco a potenziale ordinale")[
+#definition(title: "Gioco a potenziale ordinale")[
   #align(center)[#emph[Monderer-Shapley 1996]]
   Un gioco è #term[a potenziale ordinale] se esiste una funzione #term[potenziale ordinale] $P : S -> RR$ tale che per ogni $i$ valga
   $
@@ -844,7 +844,7 @@ I teoremi di esistenza di massimo possono quindi essere applicati al potenziale 
 Un gioco sequenziale è un gioco dove i giocatori si alternano nelle scelte.
 Per analizzare i giochi sequenziali finiti si presta bene la struttura di albero di enumerazione.
 
-#definition("Gioco sequenziale finito")[
+#definition(title: "Gioco sequenziale finito")[
   Un #term[gioco sequenziale finito] è rappresentato da un albero di enumerazione, cioè un albero con tutti gli archi diretti uscenti dalla radice.
   - Ogni nodo rappresenta uno stato del gioco
   - Un #term[turno] consiste dei nodi ad una determinata distanza dalla radice (#term[profondità])
@@ -853,13 +853,13 @@ Per analizzare i giochi sequenziali finiti si presta bene la struttura di albero
 
 Non è detto che un giocatore conosca sempre lo storico di tutte le mosse giocate prima di lui, e quindi lo stato corrente del gioco. Può capitare che un giocatore sappia di trovarsi in uno stato tra un certo insieme di nodi, senza sapere con certezza quale.
 
-#definition("Insieme d'informazione")[
+#definition(title: "Insieme d'informazione")[
   Un #term[insieme d'informazione] è un insieme di nodi con stesso genitore e stesse possibili azioni.
 ]
 
 Due nodi in un insieme d'informazione sono virtualmente indistinguibili, tuttavia supponendo che gli altri giocatori siano razionali a volte si può tentare di prevedere quali mosse abbiano fatto. Questo fenomeno è chiamato #term[induzione in avanti].
 
-#definition("Gioco a informazione perfetta")[
+#definition(title: "Gioco a informazione perfetta")[
   Un gioco è #term[a informazione perfetta] se ogni insieme d'informazione consiste in un singoletto.
 
   Altrimenti è detto #term[a informazione imperfetta].
@@ -867,7 +867,7 @@ Due nodi in un insieme d'informazione sono virtualmente indistinguibili, tuttavi
 
 In altre parole un gioco è a informazione perfetta se ogni giocatore sa sempre in quale stato si trovi il gioco.
 
-#definition("Sottogioco")[
+#definition(title: "Sottogioco")[
   Un #term[sottogioco] di un gioco sequenziale finito è un sottografo del gioco originale
   - che sia ancora un albero di enumerazione
   - la cui radice non sia una foglia
@@ -875,7 +875,7 @@ In altre parole un gioco è a informazione perfetta se ogni giocatore sa sempre 
 
 Possiamo quindi definire una versione più forte dell'equilibrio di Nash che sia stabile per i sottogiochi.
 
-#definition("Equilibrio perfetto nei sottogiochi")[
+#definition(title: "Equilibrio perfetto nei sottogiochi")[
   #align(center)[#emph[Selten 1965]]
   Un profilo di strategie è un #term[equilibrio perfetto nei sottogiochi] se la sua restrizione ad ogni sottogioco è un equilibrio di Nash del sottogioco.
 ]
@@ -884,7 +884,7 @@ Vien da sé che un equilibrio perfetto nei sottogiochi è un equilibrio di Nash,
 
 Un metodo per cercare equilibri di Nash in giochi sequenziali finiti è quello di procedere "all'indietro": prima si analizzano le foglie e si risale a ritroso l'albero segnando quali archi portano all'equilibrio.
 
-#algorithm("Meotodo di induzione all'indietro")[
+#algorithm(title: "Meotodo di induzione all'indietro")[
   1. Ripeti:
     - Risolvi i sottogiochi con radice di profondità massima (_ultimo turno_).
     - Cancella le strategie di _non-_equilibrio.
@@ -905,7 +905,7 @@ Un gioco di Stackelberg è un gioco sequenziale a due giocatori: il _leader_ (gi
 
 Assumiamo che l'insieme delle miglior risposte $R_2 (x_1)$ per l'_inseguitore_ sia un singoletto per ogni $x_1 in S_1$.
 
-#definition("Equilibrio di Stackelberg")[
+#definition(title: "Equilibrio di Stackelberg")[
   La strategia $x_1^* in S_1$ è una #term[soluzione di Stackelberg] se vale $
   x_1^* in arg max {u_1(x_1, R_2(x_1)) : x_1 in S_1}
   $
@@ -926,14 +926,14 @@ Se l'insieme delle migliori risposte $R_2 (x_1)$ contiene più di un elemento no
 Per permettere una modellizzazione associamo al giocatore 2 una funzione di scelta tra $R_2 (x_1)$ per ogni $x_1 in S_1$.
 I due esempi più studiati sono:
 
-#definition("Gioco di Stackelberg ottimistico")[
+#definition(title: "Gioco di Stackelberg ottimistico")[
   Il giocatore 2 sceglie una strategia con utilità massima per il giocatore 1. Il problema è quindi cercare $
   max {max {u_1 (x_1, x_2) : x_2 in R_2 (x_1)} : x_1 in S_1} #h(1em) "OSS"
   $
   Un profilo $(x_1^*,x_2^*)$ è un #term[equilibrio di Stackelberg ottimistico] se soddisfa OSS.
 ] <def:stackelberg-o>
 
-#definition("Gioco di Stackelberg pessimistico")[
+#definition(title: "Gioco di Stackelberg pessimistico")[
   Il giocatore 2 sceglie una strategia con utilità minima per il giocatore 1. Il problema è quindi cercare $
   max {min {u_1 (x_1, x_2) : x_2 in R_2 (x_1)} : x_1 in S_1} #h(1em) "PSS"
   $Un profilo $(x_1^*,x_2^*)$ è un #term[equilibrio di Stackelberg pessimistico] se $x_1$ soddisfa PSS e $x_2 in R_2 (x_1)$.
@@ -941,7 +941,7 @@ I due esempi più studiati sono:
 
 N.B. Nel caso pessimistico non stiamo richiedendo che il giocatore 2 segua effettivamente la strategia peggiore per il primo giocatore.
 
-#theorem(authors: "Simaan, Cruz 1973")[
+#theorem(title: "Simaan, Cruz 1973")[
   Sia $({1,2},S_i,u_i)$ un gioco di Stackelberg. Se valgono
   1. $S_i$ è compatto per ogni $i$
   2. $u_i$ è superiormente semicontinua per ogni $i$
@@ -983,7 +983,7 @@ Quindi i giocatori $F$ giocano al gioco strategico $G(x_1) = (F, S_i, u_i (x_1, 
 $
 sia un singoletto per ogni $x_1 in S_1$.
 
-#definition("Equilibrio di Stackelberg-Nash")[
+#definition(title: "Equilibrio di Stackelberg-Nash")[
   La strategia $x_1^* in S_1$ è una #term[soluzione di Stackelberg-Nash] se vale $
   x_1^* in arg max {u_1(x_1, "NE"(x_1)) : x_1 in S_1}
   $
@@ -992,14 +992,14 @@ sia un singoletto per ogni $x_1 in S_1$.
 
 Come nel caso di $F = {2}$ (#link(<def:stackelberg>)[Stackelberg]) se $"NE"(x_1)$ non è un singoletto abbiamo due principali modelli di scelta:
 
-#definition("Gioco di Stackelberg-Nash ottimistico")[
+#definition(title: "Gioco di Stackelberg-Nash ottimistico")[
   L'equilibrio di Nash scelto è il migliore possibile per il giocatore 1: $
   max {max {u_1 (x_1, x_(-1)) : x_(-1) in "NE"(x_1)} : x_1 in S_1} #h(1em) "OSN"
   $
   Un profilo $(x_1^*,x_(-1)^*)$ è un #term[equilibrio di Stackelberg-Nash ottimistico] se soddisfa OSN.
 ] <def:stackelberg-nash-o>
 
-#definition("Gioco di Stackelberg-Nash pessimistico")[
+#definition(title: "Gioco di Stackelberg-Nash pessimistico")[
   L'equilibrio di Nash scelto è il peggiore possibile per il giocatore 1: $
   max {min {u_1 (x_1, x_(-1)) : x_(-1) in "NE"(x_1)} : x_1 in S_1} #h(1em) "PSN"
   $Un profilo $(x_1^*,x_(-1)^*)$ è un #term[equilibrio di Stackelberg-Nash pessimistico] se $x_1$ soddisfa PSN e $x_(-1) in "NE"(x_1)$.
@@ -1043,7 +1043,7 @@ Assumiamo che $
 $
 sia un singoletto per ogni $x_L in S_L$.
 
-#definition("Equilibrio di Stackelberg-Nash generalizzato")[
+#definition(title: "Equilibrio di Stackelberg-Nash generalizzato")[
   La strategia $x_L^* in S_L$ è una #term[soluzione di Stackelberg-Nash generalizzata] se vale $
   x_i^* in arg max {u_i (x_i, x_(L_(-i))^*, "NE"(x_i, x_(L_(-i))^*)) : x_i in S_i} #h(1em) "per ogni" i in L
   $
@@ -1052,7 +1052,7 @@ sia un singoletto per ogni $x_L in S_L$.
 
 In genere nemmeno _continutià, concavità, compattezza_ sono sufficienti a garantire l'esistenza di un equilibrio di Stackelberg-Nash generalizzato.
 
-#definition("Equilibrio multi-leader multi-follower")[
+#definition(title: "Equilibrio multi-leader multi-follower")[
   #align(center)[#emph[Pang, Fukushima 2005]]
   Un profilo $x_L^* in S_L$ è una #term[soluzione multi-leader multi-follower] se esistono profili di _inseguitori_ $y_1^*,dots,y_ell^* in S_F$ tali che $y_i^* in "NE"(x_L^*)$ e $
   (x_i^*, y_i^*) in arg max {u_i (x_i, x_(L_(-i))^*, y_i) : y_i in "NE"(x_i, x_(L_(-i))^*), x_i in S_i}
@@ -1062,7 +1062,7 @@ In genere nemmeno _continutià, concavità, compattezza_ sono sufficienti a gara
 
 N.B. Gli $y_i^*$ possono essere distinti.
 
-#definition("Equilibrio multi-leader multi-follower pessimistico")[
+#definition(title: "Equilibrio multi-leader multi-follower pessimistico")[
   Un profilo $x_L^* in S_L$ è una #term[soluzione multi-leader multi-follower pessimistica] se ogni _leader_ $i in L$ soddisfa $
   x_i^* in arg max {min {u_i (x_i, x_(L_(-i))^*, y_i) : y_i in "NE"(x_i, x_(L_(-i))^*)} : x_i in S_i}
   $In tal caso un profilo $(x_L^*,x_F^*)$ è un #term[equilibrio multi-leader multi-follower pessimistico] se vale $x_F^* in "NE"(x_L^*)$.
@@ -1077,14 +1077,14 @@ Nei giochi cooperativi la collaborazione è concessa, vediamone i modelli princi
 
 Un gioco di contrattazione consiste in $n$ giocatori che devono accordarsi su un esito, ogni possibile esito fornisce ad ogni giocatore una certa utilità.
 
-#definition("Gioco di contrattazione")[
+#definition(title: "Gioco di contrattazione")[
   #align(center)[#emph[Nash 1950]]
   Un #term[gioco di contrattazione $(U,u^*)$] è il dato di un sottoinsieme $U subset.eq RR^n$ che rappresenta i possibili esiti e un punto $u^* in RR^n$ che rappresenta l'esito dove i giocatori non cooperano.
 ]
 
 Perché il gioco sia ragionevole richiediamo che $(U,u^*)$ soddisfi due assiomi base:
 
-#definition("Assiomi di Nash")[
+#definition(title: "Assiomi di Nash")[
   1. $U subset.eq RR^n$ è convesso e compatto
   2. Esiste un $u in U$ tale che $u > u^*$
 ] <def:nash-axioms>
@@ -1093,7 +1093,7 @@ Stiamo quindi chiedendo che esista un esito ammissibile che sia preferibile alla
 
 Associamo ad ogni gioco di contrattazione l'esito su cui i giocatori si mettono d'accordo:
 
-#definition("Funzione di contrattazione")[
+#definition(title: "Funzione di contrattazione")[
   Sia $BB = {(U,u^*) : "soddisfano gli "#link(<def:nash-axioms>)[assiomi di Nash]}$ l'insieme dei giochi di contrattazione ragionevoli. Una qualunque funzione $psi : BB -> RR^n$ è detta #term[funzione di contrattazione].
 ]
 
@@ -1127,7 +1127,7 @@ L'ottimalità di Pareto ci permette di escludere il caso banale:
 
 I sei assiomi presentati caratterizzano una possibile scelta per $psi$:
 
-#theorem(title: "Soluzione di Nash", authors: "Nash 1950")[
+#theorem(title: "Soluzione di Nash - Nash 1950")[
   Esiste un'_unica_ funzione di contrattazione che soddisfi _ammissibilità, razionalità, indipendenza da alternative irrilevanti, covarianza affine positiva, simmetria, ottimalità di Pareto_, ed è $
   psi_"na" (U,u^*) = arg max {product_(k=1)^n (x_k - u_k^*) : x in U, x >= u^*}
   $
@@ -1135,7 +1135,7 @@ I sei assiomi presentati caratterizzano una possibile scelta per $psi$:
 
 Le uniche funzioni che soddisfano i primi cinque assiomi (ma non necessariamente l'ottimalità di Pareto) sono la costante $u^*$ e $psi_"na"$, assieme alle loro combinazioni convesse.
 
-#definition("Completezza")[
+#definition(title: "Completezza")[
   Un insieme $U subset.eq RR^n$ si dice #term[$u^*$-completo] se $(U - RR_+^n) inter (u^* + RR_+^n) = U$, o equivalentemente se $
   x in U, u^* <= y <= x ==> y in U
   $
@@ -1151,7 +1151,7 @@ psi(U,u^*) >= (sum_(i=1)^n d^i) / n #h(1em) "dove" d^i = arg max {x_i : x in U, 
 $
 Notiamo che il dominio del punto medio è una versione più forte della razionalità.
 
-#theorem(title: "Soluzione di Nash e dominio del punto medio", authors: "Moulin 1983")[
+#theorem(title: "Soluzione di Nash e dominio del punto medio - Moulin 1983")[
   La soluzione di Nash è l'_unica_ funzione di contrattazione che soddisfi ammissibilità, dominio del punto medio e indipendenza delle alternative irrilevanti.
 ]
 
@@ -1165,7 +1165,7 @@ $
 
 Scegliendo questo assioma al posto dell'indipendenza e della covarianza la soluzione esiste solo per $n=2$ giocatori:
 
-#theorem(title: "Soluzione di Kalai-Smodorinski", authors: "Kalai, Smodorinski 1975")[
+#theorem(title: "Soluzione di Kalai-Smodorinski - Kalai, Smodorinski 1975")[
   #boxed[$n = 2$] Esiste un'_unica_ funzione di contrattazione che soddisfi ammissibilità, razionalità, simmetria, ottimalità di Pareto, monotonia debole, ed è $
   psi (U,u^*) = "intersezione tra la retta" ell(u^*, m(U)) "e il bordo di "U
   $
@@ -1182,7 +1182,7 @@ $
 u > psi(U,u^*) ==> u in.not U
 $
 
-#theorem(authors: "Kalai 1977")[
+#theorem(title: "Kalai 1977")[
   Se $U$ è $u^*$-completo , esiste un'_unica_ funzione di contrattazione che soddisfi ammissibilità, razionalità, simmetria, ottimalità di Pareto debole, monotonia forte, ed è la #term[soluzione egualitaria]: $
   psi(U,u^*) = u^* + tau (1,dots,1)^T "dove" tau = min{max{x_i - u_i^* : x in U} : i in {1,dots,n}}
   $
@@ -1204,7 +1204,7 @@ Nel caso in cui gli $alpha_k$ siano tutti uguali otteniamo la soluzione di Nash.
 
 Un altro tipo di gioco cooperativo è il seguente: ognuno degli $n$ giocatori decide se coalizzarsi con gli altri o no. Ogni giocatore appartiene ad (esattamente) una coaliazione ed ogni coalizione ha una certa utilità, indipendentemente da come decidono di dividersi gli altri giocatori.
 
-#definition("Gioco di coalizione ad utilità trasferibile")[
+#definition(title: "Gioco di coalizione ad utilità trasferibile")[
   Un #term[gioco di coalizione ad utilità trasferibile] è il dato di una funzione caratteristica $v : cal(P)(N) -> RR$, dove $v(S)$ rappresenta l'utilità (detta #term[valore]) della coalizione $S subset.eq N$. Per convenzione richiediamo che $v(emptyset) = 0$.
 
   Se il valore è $v(S) in {0,1}$ per ogni coalizione $S subset.eq N$ il gioco è detto _semplice_. In tal caso se $v(S)=1$ la coalizione $S$ è detta _vincente_.
@@ -1216,7 +1216,7 @@ $
 
 Per ogni coalizione possiamo ricavare il gioco in cui consideriamo solo i giocatori che vi appartengono:
 
-#definition("Sottogioco")[
+#definition(title: "Sottogioco")[
   Sia $(N,v)$ un gioco coalizionale. Il gioco $(S,w)$ è un #term[sottogioco] di $(N,v)$ se valgono
   - $S subset.eq N$
   - $w$ è la restrizione di $v$ a $cal(P) (S)$, cioè $w(T) = v(T)$ per ogni $T subset.eq S$
@@ -1224,7 +1224,7 @@ Per ogni coalizione possiamo ricavare il gioco in cui consideriamo solo i giocat
 
 Perché abbia senso scegliere di cooperare invece di rimanere ostili un giocatore deve essere incentivato ad entrare in una coalizione. Due possibili interpretazioni sono gli assiomi:
 
-#definition("Gioco superadditivo")[
+#definition(title: "Gioco superadditivo")[
   Un gioco coalizionale $(N,v)$ è
   - #term[superadditivo] se vale $S inter T = emptyset ==> v(S) + v(T) <= v(S + T)$
   - #term[monotono] se vale $S subset.eq T ==> v(S) <= v(T)$
@@ -1243,7 +1243,7 @@ Se il valore è positivo $v >= 0$ allora la superadditività implica la monotoni
 
 Un gioco non superadditivo può essere trasformato in un gioco superadditivo  fornendo ad ogni coalizione il massimo valore delle sue sotto-partizioni:
 
-#definition("Ricoprimento superadditivo")[
+#definition(title: "Ricoprimento superadditivo")[
   Dato un gioco coalizionale $(N,v)$ il suo #term[ricoprimento superadditivo] è il gioco $(N,v^*)$ dato da $
   v^*(S) = max_(P in PP(S)) sum_(T in P) v(T)
   $
@@ -1259,7 +1259,7 @@ Quindi il valore $v^*(S)$ massimizza il valore della coalizione $S$ a meno di di
   3. Il gioco $(N,v^*)$ è il minimo ricoprimento di $(N,v)$ che sia superadditivo, cioè se $(N,w)$ è un altro gioco superadditivo con $w >= v$ allora vale $w >= v^*$
 ]
 
-#definition("Giochi strategicamente equivalenti")[
+#definition(title: "Giochi strategicamente equivalenti")[
   Due giochi coalizionali $(N,v),(N,w)$ sono #term[strategicamente equivalententi] se esistono $a > 0, b in RR^n$ tali che per ogni $S subset.eq N$ vale $
   w(S) = a v(S) + b(S)
   $
@@ -1270,7 +1270,7 @@ L'equivalenza strategica tra giochi è una relazione di equivalenza che conseva 
 
 Le classi di equivalenza dei giochi coalizionali sono necessariamente di uno dei tre seguenti tipi (cioè contengono almeno un gioco che rispetta le seguenti proprietà, che può quindi essere scelto come rappresentante della classe):
 
-#definition("Normalizzazione")[
+#definition(title: "Normalizzazione")[
   Un gioco coalizionale $(N,v)$ è
   - #term[0-1 normalizzato] se $v(N) = 1$ e $v(i) = 0$ per ogni $i in N$
   - #term[0-0 normalizzato] se $v(N) = 0$ e $v(i) = 0$ per ogni $i in N$
@@ -1314,7 +1314,7 @@ Alcuni primi tentativi di soluzione che soddisfano più assiomi:
 
 Si può rendere simmetrica la seconda soluzione facendo la media su tutte le permutazioni:
 
-#theorem(title: "Valore di Shapley", authors: "Shapley 1953")[
+#theorem(title: "Valore di Shapley - Shapley 1953")[
   Esiste un'unica soluzione a valori singoli che soddisfi efficienza, simmetria, giocatore nullo, additività, ed è $
   "Sh"_i (v) = 1 / n! sum_(pi in "Sym"(N)) [v(P_i (pi) union {i}) - v(P_i (pi))]
   $
@@ -1340,18 +1340,18 @@ La monotonia implica la marginalità e il valore di Shapley le soddisfa entrambe
   Gli assiomi di efficienza, simmetria, marginalità assieme implicano il giocatore nullo.
 ]
 
-#theorem(authors: "Young 1985")[
+#theorem(title: "Young 1985")[
   Il valore di Shapley è l'unica soluzione a valori singoli che soddisfi efficienza, simmetria, marginalità.
 ]
 
 Una particolare applicazione dell'idea di Shapley si ha nella sottoclasse dei giochi semplici monotoni.
 
-#definition("Gioco monotono")[
+#definition(title: "Gioco monotono")[
   Un #link(<def:simple-game>)[gioco semplice] $(N,v)$ si dice #term[monotono] se $v(S) = 1$ implica $v(T) = 1$ per ogni $T supset.eq S$.
   In tal caso la coalizione $S$ è #term[vincente] se $v(S) = 1$ e #term[perdente] se $v(S) = 0$.
 ]
 
-#definition("Indice di potere di Shapley-Shubik ")[
+#definition(title: "Indice di potere di Shapley-Shubik ")[
   #align(center)[#emph[Shapley, Shubik 1954]]
   Il valore di Shapley di un gioco semplice monotono è detto #term[indice di potere di Shapley-Shubik].
 ]
@@ -1362,7 +1362,7 @@ $
 
 Un altro indice dal comportamento simile è 
 
-#definition("Indice di potere di Banzhaf")[
+#definition(title: "Indice di potere di Banzhaf")[
   #align(center)[#emph[Penrose 1946, Banzhaf 1965, Coleman 1971, Dubey-Shapley 1979]]
   Sia $(N,v)$ un gioco semplice e sia $W(i) = {S subset.eq N : S "è perdente", S union {i} "è vincente"}$. L'#term[indice di potere di Banzhaf] è $
   "BPI"_i (v) = bar(W(i)) / 2^(n-1)
@@ -1375,7 +1375,7 @@ Un altro indice dal comportamento simile è
 Supponiamo ora che si formi la coalizione di tutti i giocatori $N$. Come si spartiscono il valore $v(N)$? Una spartizione del valore è rappresentata da un vettore $x in RR^n$ tale che $x(N) = sum_(i in N) x_i = v(N)$, dove il giocatore $i$ riceve l'utilità $x_i$.
 Una prima assiomatizzazione per rendere la spartizione ragionevole è la seguente:
 
-#definition("Imputazione")[
+#definition(title: "Imputazione")[
   Un vettore $x in RR^n$ è una #term[imputazione] per il gioco coalizionale $(N,v)$ se è
   - _socialmente razionale_ (o _efficiente_), cioè $x(N) = v(N)$
   - _individualmente razionale_, cioè $x_i >= v(i)$ per ogni giocatore $i in N$
@@ -1384,7 +1384,7 @@ Una prima assiomatizzazione per rendere la spartizione ragionevole è la seguent
 
 In generale può capitare che per una coalizione un'imputazione sia preferibile ad un'altra:
 
-#definition("Dominanza")[
+#definition(title: "Dominanza")[
   Siano $x,y in X(N,v)$. L'imputazione #term[$y$ domina $x$ tramite la coalizione $S subset.eq N$] se
   - $y_i >= x_i$ per ogni $i in S$
   - $y(S) <= v(S)$
@@ -1393,7 +1393,7 @@ In generale può capitare che per una coalizione un'imputazione sia preferibile 
 
 Tra tutte le imputazioni chiamiamo stabili quelle che sono massimali per la dominanza.
 
-#definition("Insieme stabile")[
+#definition(title: "Insieme stabile")[
   #align(center)[#emph[vonNeumann, Morgenstern 1944]]
   Un sottoinsieme di imputazioni $G subset.eq X(N,v)$ è detto #term[insieme stabile per $(N,v)$] se è
   - _stabile internamente_, cioè nessun elemento $x in G$ è dominato da un altro $y in G$
@@ -1403,7 +1403,7 @@ Tra tutte le imputazioni chiamiamo stabili quelle che sono massimali per la domi
 Può essere ragionevole scegliere di distribuire il valore tramite un'imputazione stabile, tuttavia mentre la definizione di insieme stabile è abbastanza semplice la sua computazione è un problema che in generale risulta piuttosto difficile.
 Per ovviare al problema definiamo un altro insieme di imputazioni che sia ragionevole ma spesso di più facile studio:
 
-#definition("Nucleo di un gioco")[
+#definition(title: "Nucleo di un gioco")[
   #align(center)[#emph[Gillies 1959]]
   Il #term[nucleo] di un gioco coalizionale $(N,v)$ è l'insieme di imputazioni $
   C(N,v) = {x in RR^n : x(N) = v(N), x(S) >= v(S) "per ogni" S subset.eq N}
@@ -1436,7 +1436,7 @@ L'equazione #link(<eq:super-additivity-cor>)[$(*)$] è soddisfatta anche da ogni
 
 Un altro modo di caratterizzare la non vacuità del nucleo è tramite la bilanciatezza del gioco.
 
-#definition("Bilanciatezza di un gioco")[
+#definition(title: "Bilanciatezza di un gioco")[
   Sia $cal(C) = cal(P)(N) without {emptyset, N}$ l'insieme delle parti proprie di $N$.
   - Un vettore ${lambda_S}_(S in cal(C))$ è detto #term[vettore di pesi bilancianti] se valgono
     - $lambda_S >= 0$ per ogni $S in cal(C)$
@@ -1451,7 +1451,7 @@ La bilanciatezza è invariante per equivalenza strategica.
 
 Si può pensare ai pesi bilancianti come la frazione di tempo che ogni giocatore di una coalizione le dedica. Dedicandosi completamente ad $S$ si ottiene un valore di $v(S)$, dedicandosi per $lambda_S$ tempo si ottiene $lambda_S v(S)$.
 
-#theorem(authors: "Bondareva 1963, Shapley 1967")[
+#theorem(title: "Bondareva 1963, Shapley 1967")[
   Il nucleo di un gioco coalizionale è non vuoto se e solo se il gioco è bilanciato.
 ]
 
@@ -1467,7 +1467,7 @@ Il teorema si può anche mostrare usando il #link(<thm:minimax>)[teorema di mini
 
 Un gioco non bilanciato si può bilanciare aumentando arbitrariamente il valore $v(N)$. Il minimo $v(N)$ che funziona fornisce il così detto ricoprimento bilanciato del gioco.
 
-#definition("Ricoprimento bilanciato")[
+#definition(title: "Ricoprimento bilanciato")[
   Dato un gioco coalizionale $(N,v)$ sia $
   v^*(S) = cases(
     v(S) & "se" S != N,
@@ -1487,7 +1487,7 @@ Un gioco non bilanciato si può bilanciare aumentando arbitrariamente il valore 
 
 Generalizziamo l'idea di #link(<def:core>)[nucleo] ad una partizione generica dei giocatori:
 
-#definition("Imputazione per coalizioni")[
+#definition(title: "Imputazione per coalizioni")[
   Un vettore $x in RR^n$ è una #term[imputazione rispetto a $cal(P) in PP(N)$] per il gioco coalizionale $(N,v)$ se è
   - _socialmente razionale_ (o _efficiente_), cioè $x(S) = v(S)$ per ogni $S in cal(P)$
   - _individualmente razionale_, cioè $x_i >= v(i)$ per ogni giocatore $i in N$
@@ -1496,7 +1496,7 @@ Generalizziamo l'idea di #link(<def:core>)[nucleo] ad una partizione generica de
 
 La #link(<def:imputation>)[definizione precedente] corrisponde al caso particolare in cui $cal(P) = {N}$.
 
-#definition("Nucleo per coalizioni di un gioco")[
+#definition(title: "Nucleo per coalizioni di un gioco")[
   Il #term[nucleo rispetto a $cal(P) in PP(N)$] di un gioco coalizionale $(N,v)$ è l'insieme di imputazioni $
   C(N,v,cal(P)) = {x in RR^n : x(S) = v(S) "per ogni" S in cal(P), x(S) >= v(S) "per ogni" S subset.eq N}
   $
@@ -1518,7 +1518,7 @@ In particolare se $cal(P) in PP(N)$ è una partizione dei giocatori vale uno dei
 Un altro modo di generalizzare il nucleo è indebolendo/rafforzando la condizione $x(S) >= v(S)$.
 Prima dobbiamo indebolire la nozione di imputazione:
 
-#definition("Preimputazione")[
+#definition(title: "Preimputazione")[
   Un vettore $x in RR^n$ è una #term[preimputazione] per il gioco coalizionale $(N,v)$ se è _socialmente razionale_ (o _efficiente_), cioè $x(N) = v(N)$.
   Poniamo $X^0(N,v)$ come l'insieme di tutte le imputazioni per $(N,v)$.
 ] <def:preimputation>
@@ -1530,7 +1530,7 @@ C(N,v) = {x in X^0(N,v) : x(S) >= v(S) "per ogni" S subset.eq N}
 $
 Adesso possiamo procedere con la generalizzazione.
 
-#definition($epsilon$ + "-nucleo forte")[
+#definition(title: $epsilon$ + "-nucleo forte")[
   #align(center)[#emph[Shapley, Shubik 1966]]
   $
   C_epsilon (N,v) = {x in X^0(N,v) : x(S) >= v(S) - epsilon "per ogni" S subset.neq N} #h(1em) (epsilon in RR)
@@ -1544,7 +1544,7 @@ Per $epsilon >> 0$ l'$epsilon$-nucleo forte è non vuoto, viceversa per $epsilon
 
 Un altro modo di procedere è il seguente:
 
-#definition($epsilon$ + "-nucleo debole")[
+#definition(title: $epsilon$ + "-nucleo debole")[
   #align(center)[#emph[Shapley, Shubik 1966]]
   $
   tilde(C)_epsilon (N,v) = {x in X^0(N,v) : x(S) >= v(S) - bar(S) epsilon "per ogni" S subset.neq N} #h(1em) (epsilon in RR)
@@ -1559,7 +1559,7 @@ Per quando abbiamo visto l'insieme degli $epsilon in RR$ per cui l'$epsilon$-nuc
 I(N,v) = {epsilon in RR : C_epsilon (N,v) != emptyset} = [overline(epsilon), +infinity)
 $
 
-#definition("Nucleo minimo di un gioco")[
+#definition(title: "Nucleo minimo di un gioco")[
   #align(center)[#emph[Maschler, Peleg, Shapley 1979]]
   $
   L C(N,v) = inter.big_(epsilon thin : thin C_epsilon (N,v) != emptyset) C_epsilon (N,v) = C_overline(epsilon)(N,v)
@@ -1578,7 +1578,7 @@ Il nucleo minimo può essere calcolato con relativa semplicità:
 
 Diamo un nome alla quantità $v(S) - x(S)$:
 
-#definition("Eccesso")[
+#definition(title: "Eccesso")[
   L'#term[eccesso] di una coalizione $S subset.eq N$ in $x in RR^n$ è $
   e(S,x) = v(S) - x(S)
   $
@@ -1590,7 +1590,7 @@ $
 
 Un altro modo di interpretare il problema è quello di cercare di minimizzare l'insoddisfazione totale. Per farlo usiamo il
 
-#definition("Vettore ordinato di insoddisfazione")[
+#definition(title: "Vettore ordinato di insoddisfazione")[
   Il vettore $theta(x) = (e(S_1,x),dots,e(S_n,x))$ è detto #term[vettore ordinato di insoddisfazione in $x in RR^n$] se
   - $cal(P)(N) = {S_1,dots,S_n}$
   - $e(S_i,x) >= e(S_(i+1),x)$ per ogni $i in {1,dots,2^n-1}$
@@ -1598,7 +1598,7 @@ Un altro modo di interpretare il problema è quello di cercare di minimizzare l'
 
 Il vettore ordinato di insoddisfazione è il vettore ottenuto ordinando in modo decrescente gli eccessi di ogni possibile coalizione rispetto a un $x in RR^n$ fissato.
 
-#definition("Nucleoli di un gioco")[
+#definition(title: "Nucleoli di un gioco")[
   #align(center)[#emph[Schmeidler 1969]]
   Il #term[nucleolo del gioco $(N,v)$ relativo a $K subset.eq RR^n$] è l'insieme dei punti di #link(<def:lexicographic-order>)[minimo lessicografico] di $K$, cioè $
   cal(N)(N,v,K) = {x in K : theta(x) <=_"lex" theta(y) "per ogni" y in K}
@@ -1630,7 +1630,7 @@ $
 
 I due nucleoli principali sono i seguenti:
 
-#definition("Nucleoli concreti")[
+#definition(title: "Nucleoli concreti")[
   - $cal(N)(N,v) = cal(N)(N,v,X(N,v))$ è il #term[nucleolo] di $(N,v)$
   - $cal(P N)(N,v) = cal(N)(N,v,X^0(N,v))$ è il #term[prenucleolo] di $(N,v)$
 ]
@@ -1654,12 +1654,12 @@ Tuttavia, i nucleoli concreti hanno varie altre buone proprietà.
 
 Così come il nucleo si può generalizzare ad una partizione dei giocatori si può fare con i nucleoli.
 
-#definition("Preimputazione")[
+#definition(title: "Preimputazione")[
   Sia $cal(P) in PP(N)$ una partizione dei giocatori. Un vettore $x in RR^n$ è una #term[preimputazione rispetto a $cal(P)$] se è socialmente razionale.
   L'insieme delle preimputazioni è indicato con $X^0(cal(P),v)$.
 ]
 
-#definition("Nucleoli concreti")[
+#definition(title: "Nucleoli concreti")[
   Sia $cal(P) in PP(N)$ una partizione dei giocatori.
   - $cal(N)(N,v,cal(P)) = cal(N)(N,v,X(cal(P),v))$ è il #term[nucleolo] di $(N,v)$ rispetto a $cal(P)$
   - $cal(P N)(N,v,cal(P)) = cal(N)(N,v,X^0(cal(P),v))$ è il #term[prenucleolo] di $(N,v)$ rispetto a $cal(P)$
@@ -1669,7 +1669,7 @@ Così come il nucleo si può generalizzare ad una partizione dei giocatori si pu
 
 Un gioco di mercato è un tipo di #link(<coalitionalTU>)[gioco coalizionale ad utilità trasferibile] in cui $n$ produttori/venditori (i giocatori) di $p$ merci si accordano per produrle/venderle. È permesso lo scambio di merci tra giocatori in una stessa coalizione.
 
-#definition("Gioco di mercato")[
+#definition(title: "Gioco di mercato")[
   Un gioco coalizionale $(N,v)$ è un #term[gioco di mercato] se il valore è della forma $
   v(S) = max {sum_(i in S) u_i (z^i) : sum_(i in S) z^i = sum_(i in S) w^i, z in RR_+^p}
   $ dove
