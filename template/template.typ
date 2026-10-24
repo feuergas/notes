@@ -12,6 +12,7 @@
   teachers: (),
   authors: (),
   year: "",
+  toc-depth: 2,
   content
 ) = context {
   // meta information
@@ -130,7 +131,7 @@
   // table of contents
   set page(numbering: "1")
   counter(page).update(2)
-  outline(depth: 3)
+  outline(depth: toc-depth)
   pagebreak()
   
   content

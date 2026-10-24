@@ -49,21 +49,27 @@
   title: none,
   numbering: true,
   body
-) = context {
-  let style = environment-styles.at(
-    kind,
-    default: default-style
-  )
+) = figure(
+  kind: kind,
+  supplement: context {
+    let lang = text.lang
+    let label = labels.at(lang, default: labels.en)
+      .at(kind, default: titlecase(kind))
+    label
+  },
+  caption: none
+)[
+  #context {
+    let style = environment-styles.at(
+      kind,
+      default: default-style
+    )
 
-  let lang = text.lang
-  let label = labels.at(lang, default: labels.en)
-    .at(kind, default: titlecase(kind))
-
-  figure(
-    kind: kind,
-    supplement: label,
-  )[
-    #block(
+    let lang = text.lang
+    let label = labels.at(lang, default: labels.en)
+      .at(kind, default: titlecase(kind))
+    
+    block(
       width: 100%,
       fill: style.fill,
       stroke: (left: 2pt + style.stroke),
@@ -83,8 +89,8 @@
         #body
       ]
     ]
-  ]
-}
+  }
+]
 
 #let definition(..args) = new-theorem(
   kind: "definition",
@@ -145,6 +151,7 @@
     .at(kind, default: titlecase(kind))
 
   block(
+    width: 100%,
     above: 1em,
     below: 1em,
   )[
