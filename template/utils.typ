@@ -30,3 +30,6 @@
 
 // Proof conclusion symbol
 #let qed = $square$
+
+// Without loss of generality
+#let wlog = emph("wlog")
