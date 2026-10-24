@@ -10,6 +10,10 @@
   year: "2026/2027",
 )
 
+= Reciprocity laws
+
+#include "chapters/introduction.typ"
+
 = $p$-adic number fields
 
 #include "chapters/padic-extensions.typ"

@@ -110,7 +110,7 @@ From now on we assume that $K$ is a complete discretely valuated field.
   $
 ]
 
-The maximal unramified extension $K_"nr"$ is a discrete valuated field, with valuation extending that of $K$. Its residue field is the separable closure $k(v)_s$, however in general it is not a complete field.
+The maximal unramified extension $K_"nr"$ is a dicretely valuated field, with valuation extending that of $K$. Its residue field is the separable closure $k(v)_s$, however in general it is not a complete field.
 
 Suppose $L|K$ is a finite Galois extension (this can be generalized to infinite Galois extensions) and let $G = "Gal"(L|K)$. The action of $G$ on $L$ is compatible with the valuation (this is a consequence of the uniqueness of valuation extensions), meaning $cal(O)_L$ and $M_L$ are $G$-invariant. Every element $sigma in G$ induces an automorphism
 $
@@ -169,7 +169,7 @@ this filtration can be useful to prove properties of the multiplicative group $K
 
 The goal of this section is to show that whenever $K$ is a complete discretely valuated field with finite residue field (as in a finite extension $K|QQ_p$), the Brauer group is given by $"Br"(K) tilde.eq QQ \/ ZZ$. We divide our goal in two steps: proving $"Br"(K_"nr"|K) tilde.eq QQ \/ ZZ$ and proving $"Br"(K_"nr"|K) tilde.eq "Br"(K)$.
 
-=== Step 1: $"Br"(K_"nr"|K) tilde.eq QQ \/ ZZ$
+=== Showing $"Br"(K_"nr"|K) tilde.eq QQ \/ ZZ$
 
 #lemma[
   Let $L|K$ be a finite unramified Galois extension and let $G = "Gal"(L|K)$. There is a split short exact sequence
@@ -217,7 +217,7 @@ In particular from #ref(<lemma:cohomology-inverse-limit>) we deduce $H^i (k,k_s)
   $
     k^+ times.o_ZZ ZZ[G] -> L^+, wide lambda_i times.o sigma_i |-> lambda_i sigma_i(a).
   $
-  Moreover there is a non-canonical isomorphism $k^+ times.o_ZZ ZZ[G] tilde.eq "Hom"_ZZ (ZZ[G],k^+)$ of $k$-vector spaces since they have the same (finite) dimension. The latter is the coinduced-$G$-module $M^G (k^+)$ and therefore $H^i (G, M^G (k^+)) = 0$.
+  Moreover there is a non-canonical isomorphism $k^+ times.o_ZZ ZZ[G] tilde.eq "Hom"_ZZ (ZZ[G],k^+)$ of $k$-vector spaces since they have the same (finite) dimension. The latter is the coinduced-$G$-module $M^G (k^+)$ and therefore by #link(<missing-ref>)[Shapiro's lemma] $H^i (G, M^G (k^+)) = 0$.
 ]
 
 #proposition[
@@ -230,10 +230,10 @@ In particular from #ref(<lemma:cohomology-inverse-limit>) we deduce $H^i (k,k_s)
   $
     1 --> cal(U)_L^(j+1) --> cal(U)_L^j --> lambda^+ --> 1 ==> lambda^+ tilde.eq cal(U)_L^((j)) \/ cal(U)_L^((j+1))
   $
-  For every $i > 0$, by #ref(<lemma:hilbert-90-additive>) we have $H^i (G,lambda^+) = 0$ and therefore $H^i (G, cal(U)_L^((j)) \/ cal(U)_L^((j+1))) = 0$. Applying #ref(<lemma:cohomology-inverse-limit>) yields $H^2(G,cal(U)_L^((1))) = 0$.
+  For every $i > 0$, by #ref(<lemma:hilbert-90-additive>) we have $H^i (G,lambda^+) = 0$ and therefore $H^i (G, cal(U)_L^((j)) \/ cal(U)_L^((j+1))) = 0$. Applying #ref(<lemma:cohomology-inverse-limit>) yields $H^i (G,cal(U)_L^((1))) = 0$.
   Now extract the cohomology long exact sequence from $1 -> cal(U)_L^((1)) -> cal(U)_L -> lambda^times -> 1$, we get
   $
-    0 = H^2(G,cal(U)_L^((1))) --> H^2(G,cal(U)_L) -->^tilde H^2(G,lambda^times) --> H^3(G,cal(U)_L^(1)) = 0,
+    0 = H^2(G,cal(U)_L^((1))) --> H^2(G,cal(U)_L) -->^tilde H^2(G,lambda^times) --> H^3(G,cal(U)_L^((1))) = 0,
   $
   that is the isomorphism we desired.
 ]
@@ -254,9 +254,82 @@ In particular from #ref(<lemma:cohomology-inverse-limit>) we deduce $H^i (k,k_s)
 We can now apply the direct limit over all finite unramified Galois extension $L|K$ to the short exact sequence and get the following result:
 
 #new-theorem(kind: "Summary", numbering: false)[
-  If $K$ is a complete discrete valuated field with perfect residue field $kappa$, then we have a split short exact sequence
+  If $K$ is a complete dicretely valuated field with perfect residue field $kappa$, then we have a split short exact sequence
   $
     0 --> "Br"(kappa) --> "Br"(K_"nr"|K) --> "Hom"_"cont" ("Gal"(overline(K)|K),QQ\/ZZ) --> 0.
   $
   If moreover $kappa$ is finite we get $"Br"(K_"nr"|K) tilde.eq QQ\/ZZ$.
+]
+
+=== Showing $"Br"(K_"nr"|K) tilde.eq "Br"(K)$
+
+This fact is in general true for any complete discretely valuated field, however we are only going to prove it for fields $K$ with a finite residue field.
+
+#lemma[
+  If $K$ is a complete discretely valuated field and $L|K$ is a finite Galois extension with Galois group $G$, then the units group $cal(U)_L$ contains a $G$-submodule $V_L^1 subset cal(U)_L$ of finite index such that $H^i (G,V_L^1) = 0$ for every $i > 0$.
+]
+
+#proof[
+  From the _normal basis theorem_ there is an $a in L$ such that the set ${sigma a : sigma in G}$ is a $k$-basis of $L$. Let $pi$ be a uniformiser of $cal(O)_K$ (i.e. $v_K (pi) = 1$), since $G$ is finite there is a $r >> 0$ such that $pi^r sigma a in cal(O)_L$ for every $sigma in G$. Define the $cal(O)_K$-module $M = chevron.l pi^r sigma a : sigma in G chevron.r_(cal(O)_K)$, it is a submodule of $cal(O)_L$. We know $cal(O)_L$ is free of rank $[L:K]$ and by construction this also holds for $M$. By the structure theorem of finitely generated modules on PIDs the quotient $cal(O)_L \/ M$ is finite (since it is torsion and finitely generated). This shows that $pi^m cal(O)_L subset M$ for a suitable $m$, fix such an $m$. Define $V_L^j := 1 + pi^(m+j) M subset cal(U)_L$ and consider the map
+  $
+    V_L^j -> M / (pi M), wide 1 + pi^(m+j) a |-> a mod pi M.
+  $
+  Its kernel is exactly $V_L^(j+1)$, therefore the map induces an isomorphism
+  $
+    V_L^j / V_L^(j+1) -->^tilde M / (pi M) tilde.eq cal(O)_K / ((pi)) times.o ZZ[G] tilde.eq kappa times.o ZZ[G].
+  $
+  By #link(<missing-ref>)[Shapiro's lemma], the cohomology group $H^i (G,kappa times.o ZZ[G]) = 0$ since $kappa times.o ZZ[G]$ is isomorphic to a coinduced-module.
+  Moreover $V_L^1 tilde.eq lim_<- V_L^1 \/ V_L^j$ and by #ref(<lemma:cohomology-inverse-limit>) we get $H^1(G,V_L^1) = 0$.
+
+  Finally, $V_L^1 subset cal(U)_L$ has finite index since it contains the subgroup $1 + pi^(2 m + 1) cal(O)_L$, which has finite index in $cal(U)_L$.
+]
+
+#corollary[
+  The cohomology group $H^i (G,cal(U)_L)$ is finite for every $i > 0$.
+]
+
+#proof[
+  By the short exact sequence $1 -> V_L^1 -> cal(U)_L -> cal(U)_L \/ V_L^1 -> 1$ we extract the cohomology long exact sequence
+  $
+    0 = H^i (G, V_L^1) --> H^i (G,cal(U)_L) -->^tilde H^i (G, cal(U)_L \/ V_L^1) --> H^(i+1) (G, V_L^1) = 0,
+  $
+  Indeed, by the previous lemma $H^i (G, V_L^1) = 0$ and the quotient $cal(U)_L \/ V_L^1$ is finite.
+]
+
+#lemma[
+  Let $G$ be a finite cyclic group and let $A$ be a finite $G$-module. We have
+  $
+  abs(H^1(G,A)) = abs(H^2(G,A)).
+  $
+] <lemma:finite-cyclic-cohomology>
+
+#proof[
+  We have computed the #link(<missing-ref>)[cohomology of a cyclic group]:
+  $
+   H^1(G,A)= attach(A, bl: N) / ((sigma - 1) A), wide H^2(G,A) = A^G / (N A),
+  $
+  where $sigma$ is a generator of $G$ and $N = sum_(sigma in G) sigma$.
+  We have two short exact sequences
+  $
+    0 --> A^G --> A --> (sigma - 1) A --> 0 \
+    0 --> attach(A, bl: N) --> A --> N A --> 0
+  $
+  from which we deduce $abs(A^G) abs((sigma - 1) A) = abs(A) = abs(attach(A, bl: N)) abs(N A)$.
+]
+
+#proposition[
+  If $K$ is a complete discretely valuated field and $L|K$ is a finite Galois extension with cyclic Galois group $G tilde.eq ZZ \/ n ZZ$, then the relative Brauer group has order $abs("Br"(L|K))=n$.
+]
+
+#proof[
+  We need to show that $H^2(G, L^times)$ is finite of order $n$. From the short exact sequence $1 -> cal(U)_L -> L^times -> ZZ -> 1$ we extract the cohomology long exact sequence
+  $
+    0 = H^1(G,ZZ) --> H^2(G,cal(U)_L) --> H^2(G,L^times) --> H^2(G,ZZ) --> H^3(G,cal(U)_L) --> H^3(G,L^times) = 0.
+  $
+  Indeed since $G$ is finite $H^1(G, ZZ) = 0$ and since $G$ is also cyclic $H^3(G,L^times) = H^1(G,L^times) = 0$ by #link(<missing-ref>)[Hilbert's 90].
+  Since all the elements in the sequence have finite order we deduce
+  $
+    abs(H^2(G, L^times)) abs(H^3(G, cal(U)_L)) = abs(H^2(G, cal(U)_L)) abs(H^2(G,ZZ)) ==>^(#ref(<lemma:finite-cyclic-cohomology>)) abs(H^2(G, L^times)) = abs(H^2(G,ZZ)).
+  $
+  Since $H^2(G,ZZ) tilde.eq "Hom"(G,QQ\/ZZ) tilde.eq ZZ\/n ZZ$ we conclude. 
 ]
