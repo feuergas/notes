@@ -131,3 +131,27 @@ $
   "Hom"("Gal"(overline(K)_frak(p)|K_frak(p)), ZZ\/n ZZ) times K_frak(p)^times -> ZZ\/n ZZ, wide [chi, b] |-> (chi,b)_frak(p).
 $
 In the case where $mu_n subset K_frak(p)$ the two symbols are effectively the same: let $chi_a : sigma |-> sigma(root(n,a))/root(n,a)$, we have $(chi_a,b)_frak(p) = (a,b)_frak(p)$.
+
+Consider a character $chi in "Hom"("Gal"(overline(K)|K),ZZ\/n ZZ)$, we shall see it induces a map $chi_frak(p)$ via
+#align(center)[#commutative-diagram(
+  node((0,0),$"Gal"(overline(K)_frak(p)|K_frak(p))^"ab"$, "Gal_p"),
+  node((0,1),$"Gal"(overline(K)|K)^"ab"$, "Gal"),
+  node((1,1),$ZZ\/n$, "Z_n"),
+  arr("Gal_p", "Gal", "", "inj"),
+  arr("Gal_p", "Z_n", $chi_frak(p)$, label-pos: right, "dashed"),
+  arr("Gal", "Z_n", $chi$)
+)]
+
+#theorem(title: "Artin reciprocity law")[
+  Fix an element $b in K^times$, we have
+  $
+    sum_frak(p) (chi_frak(p),b) = 0.
+  $
+]
+
+The generalized Hilbert symbol defines a reciprocity law $K_frak(p)^times -> "Gal"(overline(K)_frak(p)|K_frak(p))^"ab"$ which is "almost" an isomorphism.
+In particular, for every $n$ we have an isomorphism of finite groups $K_frak(p)^times \/ n ->^tilde "Gal"(overline(K)_frak(p)|K_frak(p))^"ab" \/ n$. To define such a map we shall contruct its dual
+$
+  "Hom"("Gal"(overline(K)_frak(p)|K_frak(p))^"ab"\/n,ZZ\/n) & --> "Hom"(K_frak(p)^times\/n,ZZ\/n), \
+  chi & arrow.bar.long [b |-> (chi,b)_frak(p)].
+$
