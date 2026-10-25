@@ -14,6 +14,10 @@
 
 #include "chapters/introduction.typ"
 
+= Cohomology of groups
+
+#include "chapters/cohomology.typ"
+
 = $p$-adic number fields
 
 #include "chapters/padic-extensions.typ"

@@ -72,11 +72,74 @@ In general if $L|K$ is a finite Galois extension with group $G$, the norm is def
   In particular if $p divides.not a$ it simplifies to $(a,b)_p = (a / p)^(v_p (b))$.
 ]
 
+#lemma[
+  Let $a,b,c in QQ_p^times$. We have:
+  1. $(1,c)_p = 1$;
+  2. $(-c,c)_p = 1$;
+  3. $(a,c)_p = 1 ==> (a b, c)_p = (a,c)_p (b,c)_p$;
+  4. $(c,c)_p = (-1,c)_p$.
+]
+
+#proof[
+
+]
+
+#lemma[
+  If $p > 2$ and $u,v in ZZ_p^times$ then $(u,v)_p = 1$.
+]
+
+#proof[
+
+]
+
+#proposition(title: "Hensel's lemma")[
+  If we take a polynomial $f in ZZ_p [x]$ and a $p$-adic number $a_0 in ZZ_p$ such that
+  $
+    f(a_0) equiv 0 mod p, wide f'(a_0) equiv.not 0 mod p
+  $
+  then there exist a $p$-adic number $a in ZZ_p$ such that $f(a) = 0$ and $a equiv a_0 mod p$. In other words, under these conditions roots can be lifted from $FF_p$ to $ZZ_p$. 
+] <prop:hensel-lemma>
+
+#proposition[
+  Let $p > 2$ and $a,b in QQ_p^times$. Write them as $a = p^alpha u, b = p^beta v$ with $u,v in ZZ_p$, we have
+  $
+    (a,b)_p = (-1)^(alpha beta (p-1)/2) (overline(u) / p)^(-beta) (overline(v) / p)^alpha.
+  $
+]
+
+#proof[
+
+]
+
+#corollary[
+  When $p > 2$ we have $(a,c)_p (b,c)_p = (a b,c)_p$ for every $a,b,c in QQ_p^times$.
+]
+
+#proof[
+
+]
+
+#proposition[
+  Let $a,b in QQ_2^times$ and write them as $a = 2^alpha u, b = 2^beta v$ with $u,v in ZZ_2^times$. Define
+  $
+    epsilon(u) := (u-1)/2 mod 2, wide omega(u) := (u^2-1)/8 mod 2.
+  $
+  The $2$-adic Hilbert symbol has value
+  $
+    (a,b)_2 = (-1)^(epsilon(u) epsilon(v) + alpha omega(v) + beta omega(u)).
+  $
+  It is a bimultiplicative function.
+]
+
 #theorem(title: "Hilbert's reciprocity law")[
   For any $a,b in QQ^times$ we have
   $
     product_p (a,b)_p = 1.
   $
+]
+
+#proof[
+
 ]
 
 Hilbert's reciprocity law incorporates Gauss quadratic reciprocity. Indeed, it can be shown that if $a,b > 0$:
