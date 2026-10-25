@@ -13,7 +13,10 @@
 }
 
 // Envelope the content inside a box
-#let boxed(body) = markrect(body)
+#let boxed(body) = markrect(box(
+  inset: 2pt,
+  body
+))
 /*
 #let boxed(body) = box(
   inset: 2pt,
@@ -33,3 +36,6 @@
 
 // Without loss of generality
 #let wlog = emph("wlog")
+
+// Exercise is left to the reader :D
+#let exercise = text(style: "italic")[Exercise.]
