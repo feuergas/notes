@@ -142,12 +142,12 @@ For group cohomology to be well-defined, and more generally for the $"Ext"$ func
 	edge((1, -1), (2, -1), "->")
 	edge((1, 0), (2, 0), "->")
 }))
-  The map $alpha_i : P_i -> im alpha_i$ is surjective, by projectivity of $P_(i+1)$ we can find a map $tilde(alpha)_(i+1) : P_(i+1) -> im alpha_i subset.eq B_i$ such that $tilde(alpha)_(i+1) = alpha_i compose p_(i+1)$. Moreover since $
+  Let $tilde(alpha)_(i+1) : P_(i+1) -> im alpha_i subset.eq B_i$ be the map $tilde(alpha)_(i+1) = alpha_i compose p_(i+1)$. Since $
   b_i compose tilde(alpha)_(i+1) = b_i compose alpha_i compose p_(i+1) = alpha_(i-1) compose p_i compose p_(i+1) = 0
   $
-  we have $im tilde(alpha)_(i+1) subset.eq ker b_i = im b_(i+1)$ by exactness. Since $P_(i+1)$ is projective the map $tilde(alpha)_(i+1)$ factorizes through $tilde(alpha)_(i+1) = b_(i+1) compose alpha_(i+1)$ for some $alpha_(i+1) : P_(i+1) -> B_(i+1)$.
+  we have $im tilde(alpha)_(i+1) subset.eq ker b_i = im b_(i+1)$ by exactness. Moreover, $P_(i+1)$ is projective and we can lift $tilde(alpha)_(i+1)$ to a map $alpha_(i+1) : P_(i+1) -> B_(i+1)$ through $tilde(alpha)_(i+1) = b_(i+1) compose alpha_(i+1)$. By definition of $alpha_(i+1)$ the diagram commutes.
 
-  By induction we construct maps $gamma_i : P_i -> B_(i+1)$ such that if $(alpha_i), (beta_i)$ are two extensions of $alpha$ we have
+  We proceed to show the uniqueness of $H^i (alpha_i)$. By induction we construct maps $gamma_i : P_i -> B_(i+1)$ such that if $(alpha_i), (beta_i)$ are two extensions of $alpha$ we have
   $
     alpha_i - beta_i = gamma_(i-1) compose p_i + b_(i+1) compose gamma_i,
   $
