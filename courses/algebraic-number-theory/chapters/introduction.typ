@@ -182,7 +182,7 @@ Hilbert's reciprocity law incorporates Gauss's quadratic reciprocity. Indeed, if
 - $p divides.not 2 a b ==> (a,b)_p = 1$;
 - $2 divides.not a b ==> (a,b)_2 = (-1)^((a-1)/2 (b-1)/2)$;
 - $(a a', b) = (a, b) (a', b)$.
-Taking $a,b$ as distinct primes recovers Gauss's law. Hilbert's and Gauss's reciprocity laws are in fact equivalent.
+Taking $a,b$ as distinct primes recovers Gauss's law. Hilbert's and Gauss's reciprocity laws are in fact equivalent statements.
 
 == Hilbert's 9th problem
 
@@ -232,16 +232,17 @@ $
 In the case where $mu_n subset K_frak(p)$ the two symbols are effectively the same: let $chi_a : sigma |-> sigma(root(n,a))/root(n,a)$, we have $(chi_a,b)_frak(p) = (a,b)_frak(p)$.
 
 Consider a character $chi in "Hom"("Gal"(overline(K)|K),ZZ\/n ZZ)$, we shall see it induces a map $chi_frak(p)$ via
-#align(center)[#commutative-diagram(
-  node((0,0),$"Gal"(overline(K)_frak(p)|K_frak(p))^"ab"$, "Gal_p"),
-  node((0,1),$"Gal"(overline(K)|K)^"ab"$, "Gal"),
-  node((1,1),$ZZ\/n$, "Z_n"),
-  arr("Gal_p", "Gal", "", "inj"),
-  arr("Gal_p", "Z_n", $chi_frak(p)$, label-pos: right, "dashed"),
-  arr("Gal", "Z_n", $chi$)
-)]
+// https://q.uiver.app/#r=typst&q=WzAsMyxbMCwwLCJcIkdhbFwiKG92ZXJsaW5lKEspX2ZyYWsocCl8S19mcmFrKHApKV5cImFiXCIiXSxbMSwwLCJcIkdhbFwiKG92ZXJsaW5lKEspfEspXlwiYWJcIiJdLFsxLDEsIlpaIFxcLyBuIl0sWzAsMSwiIiwwLHsic3R5bGUiOnsidGFpbCI6eyJuYW1lIjoiaG9vayIsInNpZGUiOiJ0b3AifX19XSxbMCwyLCJjaGlfZnJhayhwKSIsMix7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dLFsxLDIsImNoaSJdXQ==
+#align(center, diagram({
+	node((-2, 0), [$"Gal"(overline(K)_frak(p)|K_frak(p))^"ab"$])
+	node((-1, 0), [$"Gal"(overline(K)|K)^"ab"$])
+	node((-1, 1), [$ZZ \/ n$])
+	edge((-2, 0), (-1, 0), "hook->")
+	edge((-2, 0), (-1, 1), [$chi_frak(p)$], label-side: right, "-->")
+	edge((-1, 0), (-1, 1), [$chi$], label-side: left, "->")
+}))
 
-#theorem(title: "Artin reciprocity law")[
+#theorem(title: "Artin's reciprocity law")[
   Fix an element $b in K^times$, we have
   $
     sum_frak(p) (chi_frak(p),b) = 0.

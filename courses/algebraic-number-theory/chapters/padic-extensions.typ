@@ -228,7 +228,7 @@ In particular from #ref(<lemma:cohomology-inverse-limit>) we deduce $H^i (k,k_s)
   The quotients $cal(U)_L^((1)) \/ cal(U)_L^((j))$ form an inverse system of groups and since the principal units groups $cal(U)_L^((j))$ have trivial intersection we get an isomorphism $cal(U)_L^((1)) tilde.eq lim_<- cal(U)_L^((1)) \/ cal(U)_L^((j))$.
   For every $j >= 1$ there is an exact sequence
   $
-    1 --> cal(U)_L^(j+1) --> cal(U)_L^j --> lambda^+ --> 1 ==> lambda^+ tilde.eq cal(U)_L^((j)) \/ cal(U)_L^((j+1))
+    1 --> cal(U)_L^(j+1) --> cal(U)_L^j --> lambda^+ --> 1 ==> lambda^+ tilde.eq cal(U)_L^((j)) \/ cal(U)_L^((j+1)).
   $
   For every $i > 0$, by #ref(<lemma:hilbert-90-additive>) we have $H^i (G,lambda^+) = 0$ and therefore $H^i (G, cal(U)_L^((j)) \/ cal(U)_L^((j+1))) = 0$. Applying #ref(<lemma:cohomology-inverse-limit>) yields $H^i (G,cal(U)_L^((1))) = 0$.
   Now extract the cohomology long exact sequence from $1 -> cal(U)_L^((1)) -> cal(U)_L -> lambda^times -> 1$, we get
@@ -243,7 +243,7 @@ In particular from #ref(<lemma:cohomology-inverse-limit>) we deduce $H^i (k,k_s)
   $
     0 --> "Br"(lambda|kappa) --> "Br"(L|K) --> "Hom"(G,QQ\/ZZ) --> 0.
   $
-  In particular when $kappa$ is finite if we let $n = [L:K]$ then $"Br"(L|K) tilde.eq ZZ\/n ZZ$.
+  In particular when $kappa$ is finite, if we let $n = [L:K]$, then $"Br"(L|K) tilde.eq ZZ\/n ZZ$.
 ]
 
 #proof[
