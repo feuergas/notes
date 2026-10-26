@@ -1,6 +1,6 @@
 #import "@preview/icu-datetime:0.2.2": fmt
 #import "@preview/hydra:0.6.3": hydra
-#import "@preview/commute:0.3.0": *
+#import "@preview/fletcher:0.5.8" as fletcher: diagram, node, edge
 
 #import "colors.typ": *
 #import "labels.typ": *
