@@ -283,3 +283,226 @@ For group cohomology to be well-defined, and more generally for the $"Ext"$ func
 ]
 
 == Restriction, co-restriction, inflation
+
+#definition(title: "Co-induced modules")[
+  Let $A$ be a $G$-module and let $H <= G$. We define the #term[co-induced module from $H$ to $G$] as
+  $
+    M^G_H (A) := "Hom"_H (ZZ[G], A).
+  $
+  The group $G$ acts on $phi in M^G_H (A)$ by $sigma(phi)(g) = phi(g dot sigma)$, the action is well defined: indeed, $h phi(g dot sigma) = phi(h g dot sigma)$ is still a $H$-morphism.
+]
+
+#lemma[
+  Let $A,M$ be $G$-modules and let $H <= G$. There is a canonical isomorphism
+  $
+    "Hom"_G (M,M^G_H (A)) tilde.eq "Hom"_H (M,A).
+  $
+] <lemma:coinduced-duality>
+
+#proof[
+  Given a $G$-morphism
+  $
+    M --> "Hom"_H (ZZ[G],A), wide m mapsto.long phi_m
+  $
+  we map it to $[m |-> phi_m (1)] in "Hom"_G (M,A)$.
+  Viceversa, if $lambda : M -> A$ is a $H$-morphism we map it to
+  $
+    m mapsto.long lambda_m in "Hom"_H (ZZ[G],A), wide lambda_m (g) = lambda(g dot m).
+  $
+  The two maps are mutually inverse isomorphisms.
+]
+
+#corollary(title: "Shapiro's lemma")[
+  There is a canonical isomorphism
+  $
+    H^i (G,M^G_H (A)) tilde.eq H^i (H,A).
+  $
+] <lemma:shapiro>
+
+#proof[
+  Let $P_bullet -> ZZ$ be a projective resolution of $ZZ$ by $G$-modules. Since $ZZ[G]$ is free as a $ZZ[H]$-module, each $P_i$ is is also projective as a $H$-module. Hence, $P_bullet -> ZZ$ is also a projective resolution of $ZZ$ by $H$-modules. By #ref(<lemma:coinduced-duality>) we get an isomorphism of cochain complexes $"Hom"_G (P_bullet, M^G_H (A)) tilde.eq "Hom"_H (P_bullet, A)$ which induces the desired isomorphism in cohomology.
+]
+
+#corollary[
+  In particular when $H = {1} <= G$ we have
+  $
+    H^i (G,M^G_{1} (A)) = 0 "for" i > 0.
+  $
+] <cor:coinduced-trivial-cohomology>
+
+#proof[
+  By #ref(<lemma:shapiro>) we have $H^i (G,M^G_{1} (A)) tilde.eq H^i ({1},A)$. By using the projective resolution $0 -> ZZ -> ZZ -> 0$ we get that $H^i ({1},A) = 0$ for $i > 0$.
+]
+
+#remark[
+  We call $M^G (A) := M^G_{1} (A)$ the #term[co-induced module from $A$]. There is an injective map
+  $
+    A arrow.long M^G (A), wide a mapsto.long [sigma |-> sigma a].
+  $
+  In this sense the co-induced module behaves similarly to an injective module (even if in general it is not one).
+]
+
+Consider now a $G$-module $A$, there is a $G$-morphism
+$
+  A -->^tilde "Hom"_G (ZZ[G],A) --> "Hom"_H (ZZ[G],A) = M^G_H (A)
+$
+corresponding to the inclusion $A arrow.hook M^G_H (A)$.
+
+#definition(title: "Restriction map")[
+  The #term[restriction map] is the map induced by the inclusion $A arrow.hook M^G_H (A)$ on the group cohomology
+  $
+    "Res" : H^i (G,A) --> H^i (G,M^G_H (A)) =^#ref(<lemma:shapiro>) H^i (H,A).
+  $
+  In terms of $i$-cocycles it sends $phi : G^i -> A$ to its restriction $evaluated(phi)_H : H^i -> A$.
+]
+
+Consider a normal subgroup $H triangle.l G$ and a $G$-module $A$. The action of $G$ on $A^H$ factorizes through $G\/H$, thus $A^H$ is also a $G\/H$-module.
+Let $P_bullet -> ZZ$ be a projective resolution of $ZZ$ by $G$-modules and $Q_bullet -> ZZ$ a projective resolution of $ZZ$ by $G\/H$-modules. Every term $Q_i$ inherits the structure of a $G$-module (although not necessarily projective), hence by #ref(<lemma:projective-resolution-lift>) there is a morphism of complexes $(P_bullet -> ZZ) -> (Q_bullet -> ZZ)$ obtained from the identity on $ZZ$. Therefore we get morphisms of abelian groups
+$
+  "Hom"_(G\/H) (Q_bullet, A^H) = "Hom"_(G) (Q_bullet, A^H) --> "Hom"_G (P_bullet, A^H),
+$
+they induce morphisms in cohomology
+$
+  H^i ("Hom"_(G\/H) (Q_bullet, A^H)) --> H^i ("Hom"_G (P_bullet, A^H)) = H^i (G,A^H) --> H^i (G,A).
+$
+
+#definition(title: "Inflation map")[
+  The map above is called the #term[inflation map]:
+  $
+    "Inf" : H^i (G\/H,A^H) --> H^i (G,A).
+  $
+  In terms of $i$-cocycles it sends $phi : (G\/H)^i -> A^H$ to $phi compose pi_H : G^i -> (G\/H)^i -> A^H subset.eq A$.
+]
+
+#lemma[
+  1. We have $M^G (A)^H tilde.eq M^(G\/H)(A)$ (in particular $H^i (G\/H,M^G (A)^H) = 0$ for $i > 0$).
+  2. We have $H^i (H,M^G (A)) = 0$ for $i > 0$.
+] <lemma:coinduced-trivial-cohomology-2>
+
+#proof[
+  1. By definition $M^G (A)^H = "Hom"(ZZ[G],A)^H$. Given a morphism $phi : G -> A$, it being $H$-invariant means $phi(sigma h) = h phi(sigma) = phi(sigma)$. Therefore it factors through $phi : G -> G\/H -> A$ and $
+    "Hom"(ZZ[G],A)^H tilde.eq "Hom"(ZZ[G\/H],A).
+  $
+  2. We know $ZZ[G]$ is a free $ZZ[H]$-module, therefore $M^G (A) = product_(i in I) M^H (A)$. For every $i > 0$ we get $
+    H^i (H, M^G (A)) tilde.eq H^i (H, product_(i in I) M^H (A)) tilde.eq product_(i in I) H^i (H, M^H (A)) = 0.
+  $
+]
+
+#proposition(title: "Restriction-inflation sequence")[
+  1. There is an exact sequence $
+    0 --> H^1(G\/H,A^H) -->^"Inf" H^1(G,A) -->^"Res" H^1(H,A).
+  $
+  2. If moreover $H^1(H,A)=0$ there is an exact sequence $
+    0 --> H^2(G\/H,A^H) -->^"Inf" H^2(G,A) -->^"Res" H^2(H,A).
+  $
+]
+
+#proof[
+  1. #exercise
+  2. Let $C_A = M^G (A) \/ A$, there is an exact sequence
+    $
+      0 --> A --> M^G (A) --> C_A --> 0.
+    $
+    From the group cohomology long exact sequence we extract the short exact sequence
+    $
+      0 --> A^H --> M^G (A)^H --> C_A^H --> H^1(H,A) = 0.
+    $
+    We construct a commutative diagram in the following way: we take the long exact sequences in group cohomology extracted from the above short sequences for columns, the restriction and inflation maps for rows:
+    #align(center, diagram({
+	    node((-3, 0), [$0$])
+	    node((-2, 0), [$H^1 (G\/H,C_A^H)$])
+	    node((-1, 0), [$H^1(G,C_A)$])
+	    node((0, 0), [$H^1(H,C_A)$])
+	    node((-2, 1), [$H^2 (G\/H,A^H)$])
+	    node((-1, 1), [$H^2(G,A)$])
+	    node((0, 1), [$H^2(H,A)$])
+	    node((-2, 2), [$H^2 (G\/H,M^G (A)^H)$])
+	    node((-1, 2), [$H^2(G,M^G (A))$])
+	    node((0, 2), [$H^2(H,M^G (A))$])
+	    node((-2, -1), [$H^1 (G\/H,M^G (A)^H)$])
+	    node((-1, -1), [$H^1(G,M^G (A))$])
+	    node((0, -1), [$H^1(H,M^G (A))$])
+	    edge((-3, 0), (-2, 0), "->")
+	    edge((-2, 0), (-1, 0), [$"Inf"$], label-side: left, "->")
+	    edge((-1, 0), (0, 0), [$"Res"$], label-side: left, "->")
+	    edge((-2, -1), (-2, 0), "->")
+	    edge((-2, 0), (-2, 1), "->")
+	    edge((-2, 1), (-2, 2), "->")
+	    edge((-1, -1), (-1, 0), "->")
+	    edge((-1, 0), (-1, 1), "->")
+	    edge((-1, 1), (-1, 2), "->")
+	    edge((0, -1), (0, 0), "->")
+	    edge((0, 0), (0, 1), "->")
+	    edge((0, 1), (0, 2), "->")
+	    edge((-2, 1), (-1, 1), [$"Inf"$], label-side: left, "->")
+	    edge((-1, 1), (0, 1), [$"Res"$], label-side: left, "->")
+    }))
+    We shall prove the central vertical maps are isomorphisms, then by the previous point we get the desired result.
+    This is a direct consequence of #ref(<cor:coinduced-trivial-cohomology>) and #ref(<lemma:coinduced-trivial-cohomology-2>).
+]
+
+#remark[
+  In general, there is a spectral sequence $H^p (G\/H, H^q (H,A)) => H^(p+q)$ (G,A) called the #term[Hochschild-Serre spectral sequence].
+]
+
+Let $H <= G$ be a subgroup of finite index $n = [G:H]$ and fix $rho_1,dots,rho_n$ a system of coset representatives of $G mod H$. Identify $A tilde.eq "Hom"_G (ZZ[G],A)$ and consider the map
+$
+  M^G_H (A) = "Hom"_H (ZZ[G],A) & --> "Hom"_G (ZZ[G],A) tilde.eq A, \
+  phi & mapsto.long  [phi^G_H : x mapsto sum_(j=1)^n rho_j phi(rho_j^(-1) x)].
+$
+
+It is well defined, i.e. it does not depend on the choice of $rho_1,dots,rho_n$. Let $rho_j tau_j$ be another set of respresentatives, we can assume $tau_j in H$. We have
+$
+  #text(fill: red)[computations]
+$
+
+#definition(title: "Co-restriction map")[
+  The #term[co-restriction map] is the morphism
+  $
+    "Cor" : H^i (H,A) tilde.eq H^i (G,M^G_H (A)) --> H^i (G,A)
+  $
+  induced in cohomology by the map above.
+]
+
+#proposition[
+  If $[G:H] = n$ then $"Cor" compose "Res" = n$.
+] <prop:cor-res-composition>
+
+#proof[
+  Recall $A tilde.eq "Hom"_G (ZZ[G],A)$. The maps that induce restriction and co-restriction in cohomology compose as
+  $
+    "Hom"_G (ZZ[G],A) & --> & "Hom"_H (ZZ[G],A) & --> & "Hom"_G (ZZ[G],A), \
+    phi & mapsto.long & phi & mapsto.long & phi^G_H.
+  $
+  Since $phi$ is a $G$-morphism we have
+  $
+    phi^G_H (x) = sum_(j=1)^n rho_j phi( rho_j^(-1) x) = sum_(j=1)^n rho_j rho_j^(-1) phi(x) = sum_(j=1)^n phi(x) = n phi(x),
+  $
+  therefore the map $phi |-> phi^G_H$ is multiplication-by-$n$.
+]
+
+#corollary[
+  If $G$ is finite of order $n$, then $n dot H^i (G,A) = 0$ for every $i > 0$.
+] <cor:cohomology-torsion>
+
+#proof[
+  We apply $"Res"$ and $"Cor"$ with subgroup $H={1} <= G$. We get
+  $
+    H^i (G,A) -->^"Res" H^i ({1},A) -->^"Cor" H^i (G,A),
+  $
+  from #ref(<prop:cor-res-composition>) this is the multiplication-by-$n$ map. On the other hand,
+  $
+    H^i ({1},A) tilde.eq^#ref(<lemma:shapiro>) H^i (G,M^G (A)) =^#ref(<cor:coinduced-trivial-cohomology>) 0 "for" i > 0.
+  $
+  Hence $dot n = 0$ as maps on $H^i (G,A)$.
+]
+
+#corollary[
+  If $G$ has finite order $n$ and $A$ is a $QQ$-vector space, then $H^i (G,A) = 0$ for every $i > 0$.
+]
+
+#proof[
+  The multiplication map $a |-> n a$ is an isomorphism $A ->^tilde A$. The induced map $H^i (G,A) ->^n H^i (G,A)$ is also an isomorphism, and #ref(<cor:cohomology-torsion>) yields $H^i (G,A) = 0$.
+]
+
+The proof can be adapted to any $K$-vector space where $K$ is $n$-divisible, that is multiplication by $n$ is bijective on $K$.
