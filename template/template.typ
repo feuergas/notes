@@ -1,6 +1,7 @@
 #import "@preview/icu-datetime:0.2.2": fmt
 #import "@preview/hydra:0.6.3": hydra
 #import "@preview/fletcher:0.5.8" as fletcher: diagram, node, edge
+#import "@preview/physica:0.9.7": evaluated
 
 #import "colors.typ": *
 #import "labels.typ": *
