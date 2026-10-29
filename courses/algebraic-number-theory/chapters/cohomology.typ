@@ -453,8 +453,13 @@ $
 
 It is well defined, i.e. it does not depend on the choice of $rho_1,dots,rho_n$. Let $rho_j tau_j$ be another set of respresentatives, we can assume $tau_j in H$. We have
 $
-  #text(fill: red)[computations]
+  rho_j tau_j phi(tau_j^(-1) rho_j^(-1) x) = rho_j tau_j tau_j^(-1) phi(rho_j^(-1) x) = rho_j phi(rho_j^(-1) x),
 $
+since $phi$ is a $H$-morphism. Moreover, the map $phi^G_H$ is effectively a $G$-morphism, indeed
+$
+  phi^G_H (sigma x) = sum_j rho_j phi(rho_j^(-1) sigma x) = sigma sum_j (sigma^(-1) rho_j) phi((sigma^(-1) rho_j)^(-1) x) = sigma phi^G_H (x)
+$
+because $sigma^(-1) rho_j$ is still a set of representatives.
 
 #definition(title: "Co-restriction map")[
   The #term[co-restriction map] is the morphism
@@ -506,3 +511,4 @@ $
 ]
 
 The proof can be adapted to any $K$-vector space where $K$ is $n$-divisible, that is multiplication by $n$ is bijective on $K$.
+
