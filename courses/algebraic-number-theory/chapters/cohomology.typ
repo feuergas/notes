@@ -280,7 +280,7 @@ For group cohomology to be well-defined, and more generally for the $"Ext"$ func
   $ is a projective resolution where the maps $(sigma - 1)$ and $N$ alternate. We get $
     H^0(C_n,A) = A^(C_n), wide H^(2 i - 1)(C_n,A) = attach(A, bl: N) / ((sigma - 1)A), wide H^(2 i)(C_n,A) = A^(C_n) / (N A)
   $ for every $i >= 1$, where $attach(A, bl: N) := ker N$.
-]
+] <example:cyclic-cohomology>
 
 == Restriction, co-restriction, inflation
 
@@ -395,7 +395,7 @@ $
   2. If moreover $H^1(H,A)=0$ there is an exact sequence $
     0 --> H^2(G\/H,A^H) -->^"Inf" H^2(G,A) -->^"Res" H^2(H,A).
   $
-]
+] <prop:restriction-inflation-sequence>
 
 #proof[
   1. #exercise
@@ -504,11 +504,48 @@ because $sigma^(-1) rho_j$ is still a set of representatives.
 
 #corollary[
   If $G$ has finite order $n$ and $A$ is a $QQ$-vector space, then $H^i (G,A) = 0$ for every $i > 0$.
-]
+] <cor:divisible-trivial-cohomology>
 
 #proof[
   The multiplication map $a |-> n a$ is an isomorphism $A ->^tilde A$. The induced map $H^i (G,A) ->^n H^i (G,A)$ is also an isomorphism, and #ref(<cor:cohomology-torsion>) yields $H^i (G,A) = 0$.
 ]
 
-The proof can be adapted to any $K$-vector space where $K$ is $n$-divisible, that is multiplication by $n$ is bijective on $K$.
+The proof can be adapted to any $K$-vector space where $K$ is $n$-divisible, that is multiplication by $n$ is surjective on $K$.
 
+== Profinite groups
+
+#definition(title: "Inverse system of groups")[
+
+]
+
+#definition(title: "Profinite group")[
+
+]
+
+#example[
+
+]
+
+#example[
+
+]
+
+#definition(title: "Direct system of groups")[
+
+]
+
+#definition(title: "Continuous " + $G$ + "-modules")[
+
+]
+
+#definition(title: "Continuous cohomology of groups")[
+
+]
+
+#example[
+
+]
+
+
+
+== Cup product
