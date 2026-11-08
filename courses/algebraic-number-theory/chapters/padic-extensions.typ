@@ -341,9 +341,17 @@ This fact is in general true for any complete discretely valuated field, however
 
 #proposition[
   If $L|K$ is a finite separable extension the following diagram commutes:
-  $
-    #text(fill: red)[diagram]
-  $
+// https://q.uiver.app/#r=typst&q=WzAsNCxbMCwwLCJcIkJyXCIoS19cIm5yXCJ8SykiXSxbMSwwLCJRUVxcL1paIl0sWzAsMSwiXCJCclwiKExfXCJuclwifEwpIl0sWzEsMSwiUVFcXC9aWiJdLFswLDEsInRpbGRlLmVxIl0sWzIsMywidGlsZGUuZXEiXSxbMSwzLCJbTDpLXSJdLFswLDIsIlwiUmVzXCIiLDJdXQ==
+#align(center, diagram({
+	node((-2, 0), [$"Br"(K_"nr"|K)$])
+	node((-1, 0), [$QQ\/ZZ$])
+	node((-2, 1), [$"Br"(L_"nr"|L)$])
+	node((-1, 1), [$QQ\/ZZ$])
+	edge((-2, 0), (-1, 0), [$tilde.eq$], label-side: left, "->")
+	edge((-2, 1), (-1, 1), [$tilde.eq$], label-side: left, "->")
+	edge((-1, 0), (-1, 1), [$[L:K]$], label-side: left, "->")
+	edge((-2, 0), (-2, 1), [$"Res"$], label-side: right, "->")
+}))
 ] <prop:brauer-restriction-degree>
 
 #proof[
@@ -355,11 +363,34 @@ This fact is in general true for any complete discretely valuated field, however
   $
   The isomorphism follows from #ref(<cor:divisible-trivial-cohomology>)
   - #boxed[$L|K$ is unramified] In particular we have $L_"nr" = K_"nr"$. Since the restriction map $"Res"$ is functorial (#exercise) the following diagram commutes:
-    $
-      "Br"(K_"nr"|K) = H^2("Gal"(K_"nr"|K),K_"nr"^times) -->^v H^2("Gal"(K_"nr"|K),ZZ) tilde.eq H^2("Gal"(overline(kappa)|kappa),ZZ) tilde.eq H^1(kappa, QQ\/ZZ)\
-      #text(fill: red)[diagram]
-    $
-    #text(fill: red)[^here $H^1(kappa,QQ\/ZZ)=H^1("Gal"(overline(kappa)|kappa),QQ\/ZZ)$, right?]
+    // https://q.uiver.app/#r=typst&q=WzAsMTAsWzMsMCwiSF4yKFwiR2FsXCIoS19cIm5yXCJ8SyksWlopIl0sWzQsMCwiSF4yKFwiR2FsXCIob3ZlcmxpbmUoa2FwcGEpfGthcHBhKSxaWikiXSxbNSwwLCJIXjEoa2FwcGEsUVFcXC9aWikiXSxbMywxLCJIXjIoXCJHYWxcIihLX1wibnJcInxMKSxaWikiXSxbNCwxLCJIXjIoXCJHYWxcIihvdmVybGluZShrYXBwYSl8bGFtYmRhKSxaWikiXSxbNSwxLCJIXjEobGFtYmRhLFFRXFwvWlopIl0sWzAsMCwiXCJCclwiKEtfXCJuclwifEspIl0sWzEsMCwiSF4yKFwiR2FsXCIoS19cIm5yXCJ8SyksS19cIm5yXCJedGltZXMpIl0sWzAsMSwiXCJCclwiKEtfXCJuclwifEwpIl0sWzEsMSwiSF4yKFwiR2FsXCIoS19cIm5yXCJ8TCksS19cIm5yXCJedGltZXMpIl0sWzAsMSwidGlsZGUuZXEiLDEseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJub25lIn0sImhlYWQiOnsibmFtZSI6Im5vbmUifX19XSxbMSwyLCJ0aWxkZS5lcSIsMSx7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6Im5vbmUifSwiaGVhZCI6eyJuYW1lIjoibm9uZSJ9fX1dLFszLDQsInRpbGRlLmVxIiwxLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoibm9uZSJ9LCJoZWFkIjp7Im5hbWUiOiJub25lIn19fV0sWzQsNSwidGlsZGUuZXEiLDEseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJub25lIn0sImhlYWQiOnsibmFtZSI6Im5vbmUifX19XSxbMCwzLCJcIlJlc1wiIl0sWzEsNCwiXCJSZXNcIiJdLFsyLDUsIlwiUmVzXCIiXSxbNywwLCJ2Il0sWzksMywidiJdLFs4LDksInRpbGRlLmVxIiwxLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoibm9uZSJ9LCJoZWFkIjp7Im5hbWUiOiJub25lIn19fV0sWzYsNywidGlsZGUuZXEiLDEseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJub25lIn0sImhlYWQiOnsibmFtZSI6Im5vbmUifX19XSxbNyw5LCJcIlJlc1wiIl0sWzYsOCwiXCJSZXNcIiJdXQ==
+    #align(center, diagram(
+  spacing: (.5em, 3em),
+  {
+	node((2, 0), [$H^2("Gal"(K_"nr"|K),ZZ)$])
+	node((3, 0), [$H^2("Gal"(overline(kappa)|kappa),ZZ)$])
+	node((4, 0), [$H^1(kappa,QQ\/ZZ)$])
+	node((2, 1), [$H^2("Gal"(K_"nr"|L),ZZ)$])
+	node((3, 1), [$H^2("Gal"(overline(kappa)|lambda),ZZ)$])
+	node((4, 1), [$H^1(lambda,QQ\/ZZ)$])
+	node((-1, 0), [$"Br"(K_"nr"|K)$])
+	node((0, 0), [$H^2("Gal"(K_"nr"|K),K_"nr"^times)$])
+	node((-1, 1), [$"Br"(K_"nr"|L)$])
+	node((0, 1), [$H^2("Gal"(K_"nr"|L),K_"nr"^times)$])
+	edge((2, 0), (3, 0), [$tilde.eq$], label-side: center, " ")
+	edge((3, 0), (4, 0), [$tilde.eq$], label-side: center, " ")
+	edge((2, 1), (3, 1), [$tilde.eq$], label-side: center, " ")
+	edge((3, 1), (4, 1), [$tilde.eq$], label-side: center, " ")
+	edge((2, 0), (2, 1), [$"Res"$], label-side: left, "->")
+	edge((3, 0), (3, 1), [$"Res"$], label-side: left, "->")
+	edge((4, 0), (4, 1), [$"Res"$], label-side: left, "->")
+	edge((0, 0), (2, 0), [$v$], label-side: left, "->")
+	edge((0, 1), (2, 1), [$v$], label-side: left, "->")
+	edge((-1, 1), (0, 1), [$tilde.eq$], label-side: center, " ")
+	edge((-1, 0), (0, 0), [$tilde.eq$], label-side: center, " ")
+	edge((0, 0), (0, 1), [$"Res"$], label-side: left, "->")
+	edge((-1, 0), (-1, 1), [$"Res"$], label-side: left, "->")
+}))
     Moreover, since $QQ\/ZZ$ is a trivial module we get
     $
       H^1(kappa,QQ\/ZZ) = "Hom"(kappa,QQ\/ZZ) tilde.eq "Hom"(hat(ZZ),QQ\/ZZ) tilde.eq QQ\/ZZ.
@@ -369,13 +400,26 @@ This fact is in general true for any complete discretely valuated field, however
     $
       [x |-> x^(|kappa|)] mapsto.long [x |-> x^(|lambda|) = x^(|kappa| [lambda:kappa])],
     $
-    which becomes multiplication by $[lambda:kappa]$ on $QQ\/ZZ$. Since the extension is unramified #text(fill: red)[(is this why?)] $[lambda:kappa] = [L:K]$.
-  - #boxed[$L|K$ is totally ramified] In particular $lambda = kappa$ and $L$ is linearly disjoint from $K_"nr"$ #text(fill: red)[(the intersection $L inter K_"nr"$ is both totally ramified and unramified, hence it must be $K$ itself)].
+    which becomes multiplication by $[lambda:kappa]$ on $QQ\/ZZ$. Since the extension is unramified $[lambda:kappa] = [L:K]$.
+  - #boxed[$L|K$ is totally ramified] In particular $lambda = kappa$ and $L$ is linearly disjoint from $K_"nr"$.
     Therefore we have $L_"nr" = L K_"nr"$ and $"Gal"(L_"nr"|L) tilde.eq "Gal"(K_"nr"|K)$. Consider once more the commutative diagram
-    $
-      #text(fill: red)[diagram]
-    $
-    Indeed, since the extension is totally ramified #text(fill: red)[(is this why?)] $v_L (K_"nr"^times) = [L:R] v_K (K_"nr"^times)$ and restricting to the group itself induces the identity map $"Res" = id$.
+    // https://q.uiver.app/#r=typst&q=WzAsNixbMSwwLCJIXjIoXCJHYWxcIihLX1wibnJcInxLKSxaWikiXSxbMiwwLCJIXjEoa2FwcGEsUVFcXC9aWikiXSxbMSwxLCJIXjIoXCJHYWxcIihMX1wibnJcInxMKSxaWikiXSxbMiwxLCJIXjEoa2FwcGEsUVFcXC9aWikiXSxbMCwwLCJIXjIoXCJHYWxcIihLX1wibnJcInxLKSxLX1wibnJcIl50aW1lcykiXSxbMCwxLCJIXjIoXCJHYWxcIihMX1wibnJcInxMKSxMX1wibnJcIl50aW1lcykiXSxbMCwxLCJ0aWxkZS5lcSIsMSx7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6Im5vbmUifSwiaGVhZCI6eyJuYW1lIjoibm9uZSJ9fX1dLFsyLDMsInRpbGRlLmVxIiwxLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoibm9uZSJ9LCJoZWFkIjp7Im5hbWUiOiJub25lIn19fV0sWzAsMiwiW0w6S11cIlJlc1wiIl0sWzEsMywiW0w6S10iXSxbNCwwLCJ2X0siXSxbNCw1LCJcIlJlc1wiIl0sWzUsMiwidl9MIl1d
+    #align(center, diagram({
+	node((2, 0), [$H^2("Gal"(K_"nr"|K),ZZ)$])
+	node((3, 0), [$H^1(kappa,QQ\/ZZ)$])
+	node((2, 1), [$H^2("Gal"(L_"nr"|L),ZZ)$])
+	node((3, 1), [$H^1(kappa,QQ\/ZZ)$])
+	node((1, 0), [$H^2("Gal"(K_"nr"|K),K_"nr"^times)$])
+	node((1, 1), [$H^2("Gal"(L_"nr"|L),L_"nr"^times)$])
+	edge((2, 0), (3, 0), [$tilde.eq$], label-side: center, " ")
+	edge((2, 1), (3, 1), [$tilde.eq$], label-side: center, " ")
+	edge((2, 0), (2, 1), [$[L:K]"Res"$], label-side: left, "->")
+	edge((3, 0), (3, 1), [$[L:K]$], label-side: left, "->")
+	edge((1, 0), (2, 0), [$v_K$], label-side: left, "->")
+	edge((1, 0), (1, 1), [$"Res"$], label-side: left, "->")
+	edge((1, 1), (2, 1), [$v_L$], label-side: left, "->")
+}))
+    Indeed, since the extension is totally ramified $v_L (K_"nr"^times) = [L:R] v_K (K_"nr"^times)$ and restricting to the group itself induces the identity map $"Res" = id$.
 ]
 
 #theorem(title: $"Br"(K_"nr"|K) tilde.eq "Br"(K)$)[
@@ -383,13 +427,29 @@ This fact is in general true for any complete discretely valuated field, however
 ] <thm:unramified-equals-standard-brauer-group>
 
 #proof[
-  Let $K_n|K$ be the unique unramified extension of $K$ of degree $n$ (this is indeed unique: from Galois correspondence unramified extensions of $K$ correspond $1:1$ to extensions of $kappa$, and for $kappa$ finite there is a unique degree $n$ extension). Let $L|K$ be any finite Galois extension of degree $n$, we shall prove $"Br"(L|K) = "Br"(K_n|K)$ as subgroups of $"Br"(K)$. This concludes as $"Br"(K_"nr"|K)$ is the union of all the $"Br"(K_n|K)$ and $"Br"(K)$ is the union of all the $"Br"(L|K)$ #text(fill: red)[(is this precise? write it in a better way)].
-  - #boxed[$"Br"(K_n|K) subset "Br"(L|K)$] Consider the commutative diagram
-    $
-      #text(fill: red)[diagram]
-    $
-    From #ref(<prop:brauer-restriction-degree>) the restriction map is in fact multiplication by $[L:K] = n$. Since $"Gal"(K_n|K) tilde.eq ZZ\/n ZZ$ from #ref(<cor:cohomology-torsion>) we deduce $[L:K] dot "Br"(K_n|K) = 0$. Its image in $"Br"(L_"nr"|L) subset "Br"(L)$ is therefore trivial and this shows it is contained in the kernel $"Br"(L|K)$.
-  We now resort to showing $"Br"(L|K)$ is finite and has order dividing $n$. Since it contains $"Br"(K_n|K) tilde.eq ZZ\/n ZZ$ this shows their equality #text(fill: red)[(why? Could it not be $ZZ\/n ZZ times ZZ\/n ZZ$ for example?)].
+  Let $K_n|K$ be the unique unramified extension of $K$ of degree $n$ (this is indeed unique: from Galois correspondence unramified extensions of $K$ correspond $1:1$ to extensions of $kappa$, and for $kappa$ finite there is a unique degree $n$ extension). Let $L|K$ be any finite Galois extension of degree $n$, we shall prove $"Br"(L|K) = "Br"(K_n|K)$ as subgroups of $"Br"(K)$. This concludes as $"Br"(K_"nr"|K)$ is the union of all the $"Br"(K_n|K)$ and $"Br"(K)$ is the union of all the $"Br"(L|K)$.
+  - #boxed[$"Br"(K_n|K) subset "Br"(L|K)$] Consider the diagram
+    // https://q.uiver.app/#r=typst&q=WzAsNyxbMSwwLCJcIkJyXCIoS19ufEspIl0sWzIsMCwiXCJCclwiKEtfXCJuclwifEspIl0sWzMsMCwiXCJCclwiKExfXCJuclwifEwpIl0sWzAsMSwiMCJdLFsxLDEsIlwiQnJcIihMfEspIl0sWzIsMSwiXCJCclwiKEspIl0sWzMsMSwiXCJCclwiKEwpIl0sWzAsMSwiIiwxLHsic3R5bGUiOnsidGFpbCI6eyJuYW1lIjoiaG9vayIsInNpZGUiOiJib3R0b20ifX19XSxbMSwyLCJcIlJlc1wiIl0sWzMsNF0sWzQsNV0sWzUsNiwiXCJSZXNcIiJdLFsxLDUsIiIsMix7InN0eWxlIjp7InRhaWwiOnsibmFtZSI6Imhvb2siLCJzaWRlIjoiYm90dG9tIn19fV0sWzIsNiwiIiwyLHsic3R5bGUiOnsidGFpbCI6eyJuYW1lIjoiaG9vayIsInNpZGUiOiJib3R0b20ifX19XSxbMCw0LCIiLDEseyJzdHlsZSI6eyJ0YWlsIjp7Im5hbWUiOiJob29rIiwic2lkZSI6ImJvdHRvbSJ9LCJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XV0=
+    #align(center, diagram({
+	node((0, 0), [$"Br"(K_n|K)$])
+	node((1, 0), [$"Br"(K_"nr"|K)$])
+	node((2, 0), [$"Br"(L_"nr"|L)$])
+	node((-1, 1), [$0$])
+	node((0, 1), [$"Br"(L|K)$])
+	node((1, 1), [$"Br"(K)$])
+	node((2, 1), [$"Br"(L)$])
+	edge((0, 0), (1, 0), "hook'->")
+	edge((1, 0), (2, 0), [$"Res"$], label-side: left, "->")
+	edge((-1, 1), (0, 1), "->")
+	edge((0, 1), (1, 1), "->")
+	edge((1, 1), (2, 1), [$"Res"$], label-side: left, "->")
+	edge((1, 0), (1, 1), "hook'->")
+	edge((2, 0), (2, 1), "hook'->")
+	edge((0, 0), (0, 1), "hook'-->")
+}))
+    The right square commutes, we show the left square also commutes.
+    From #ref(<prop:brauer-restriction-degree>) the upper restriction map is in fact multiplication by $[L:K] = n$. Since $"Gal"(K_n|K) tilde.eq ZZ\/n ZZ$ from #ref(<cor:cohomology-torsion>) we deduce $[L:K] dot "Br"(K_n|K) = 0$. Its image in $"Br"(L_"nr"|L) subset "Br"(L)$ is therefore trivial and this shows it is contained in the kernel $"Br"(L|K)$.
+  We now resort to showing $"Br"(L|K)$ is finite and has order dividing $n$. Since it contains $"Br"(K_n|K) tilde.eq ZZ\/n ZZ$ this shows their equality.
   We prove it by steps:
   - #boxed[$L|K$ is cyclic] From #ref(<cor:brauer-sequence-finite>) we get $"Br"(L|K) tilde.eq ZZ\/n ZZ$.
   - #boxed[$"Gal"(L|K)$ is a $p$-group] Let $n = p^r$. Since $p$-groups are solvable there is a chain of subfields
@@ -420,9 +480,25 @@ This fact is in general true for any complete discretely valuated field, however
 #theorem(title: "Hasse")[
   Let $K$ be a complete discretely valuated field with finite residue field $kappa$. There is a canonical isomorphism $"inv" : "Br"(K) ->^tilde QQ\/ZZ$ called the #term[hasse invariant].
   Moreover, if $L|K$ is a finite separable extension the following diagrams commute:
-  $
-    #text(fill: red)[diagrams]
-  $
+  // https://q.uiver.app/#r=typst&q=WzAsOCxbMCwwLCJcIkJyXCIoSykiXSxbMSwwLCJRUVxcL1paIl0sWzAsMSwiXCJCclwiKEwpIl0sWzEsMSwiUVFcXC9aWiJdLFszLDAsIlwiQnJcIihMKSJdLFs0LDAsIlFRXFwvWloiXSxbMywxLCJcIkJyXCIoSykiXSxbNCwxLCJRUVxcL1paIl0sWzAsMSwiXCJpbnZcIiJdLFsyLDMsIlwiaW52XCIiXSxbMCwyLCJcIlJlc1wiIiwyXSxbMSwzLCJbTDpLXSJdLFs0LDUsIlwiaW52XCIiXSxbNiw3LCJcImludlwiIl0sWzQsNiwiXCJDb3JcIiIsMl0sWzUsNywiXCJpZFwiIl1d
+  #align(center, diagram({
+	node((-1, 0), [$"Br"(K)$])
+	node((0, 0), [$QQ\/ZZ$])
+	node((-1, 1), [$"Br"(L)$])
+	node((0, 1), [$QQ\/ZZ$])
+	node((2, 0), [$"Br"(L)$])
+	node((3, 0), [$QQ\/ZZ$])
+	node((2, 1), [$"Br"(K)$])
+	node((3, 1), [$QQ\/ZZ$])
+	edge((-1, 0), (0, 0), [$"inv"$], label-side: left, "->")
+	edge((-1, 1), (0, 1), [$"inv"$], label-side: left, "->")
+	edge((-1, 0), (-1, 1), [$"Res"$], label-side: right, "->")
+	edge((0, 0), (0, 1), [$[L:K]$], label-side: left, "->")
+	edge((2, 0), (3, 0), [$"inv"$], label-side: left, "->")
+	edge((2, 1), (3, 1), [$"inv"$], label-side: left, "->")
+	edge((2, 0), (2, 1), [$"Cor"$], label-side: right, "->")
+	edge((3, 0), (3, 1), [$"id"$], label-side: left, "->")
+}))
 ] <thm:hasse>
 
 #proof[
