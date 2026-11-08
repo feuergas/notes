@@ -17,7 +17,7 @@ The elements of $"Br"(k)$ correspond to the finite dimensional division algebras
   1. If $K|k$ is a Galois extension with group $G$ then it holds $"Br"(K|k)tilde.eq H^2(G,K^times)$;
   2. The Brauer group $"Br"(k)$ is the union of all the subgroups $"Br"(K|k)$ for finite Galois extensions $K|k$;
   3. If $G$ is finite and cyclic it holds $"Br"(K|k) tilde.eq k^times / (N_(K|k)(K^times))$.
-]<lemma:brauer>
+] <lemma:brauer>
 
 Here $N_(K|k) : K^times -> k^times$ denotes the norm of the field extension. When $K|k$ is finite and Galois it has value
 $
@@ -163,7 +163,7 @@ this filtration can be useful to prove properties of the multiplicative group $K
   It can be shown that $cal(U)_K^((1))$ itself can be decomposed as $cal(U)_K^((1)) tilde.eq mu_(p^s) times ZZ_p^r$, where $p^s$ is the number of $p$-power roots of unity in $K$.
 
   We deduce $K^times \/ K^(times n)$ is a finite abelian group.
-]
+] <example:finite-unit-quotient>
 
 == The Hasse invariant
 
@@ -438,7 +438,7 @@ This fact is in general true for any complete discretely valuated field, however
 ]
 
 #corollary[
-  If $(n,"char" K) = 1$ then $H^2(K,mu_n) = ZZ\/n ZZ$.
+  If $(n,"char" K) = 1$ then $H^2(K,mu_n) tilde.eq ZZ\/n ZZ$.
 ] <cor:brauer-roots-of-unity>
 
 #proof[
@@ -466,37 +466,237 @@ This fact is in general true for any complete discretely valuated field, however
   $
 ]
 
-#new-theorem(kind: "remark", numbering: false)[
-  From Kummer theory we can identify $H^1(K,mu_n) tilde.eq K^times \/ K^(times n)$. Moreover, from #ref(<cor:brauer-roots-of-unity>) we can identify $H^2(K,mu_n times.o ZZ\/n) = H^2(K,mu_n) tilde.eq ZZ\/n$. In this sense the generalised Hilbert symbol can be interpreted as a map
+#remark[
+  From Kummer theory there is an isomorphism $delta : K^times \/ K^(times n) ->^tilde H^1(K,mu_n)$. Moreover, from #ref(<cor:brauer-roots-of-unity>) the Hasse invariant is the isomorphism $H^2(K,mu_n times.o ZZ\/n) = H^2(K,mu_n) ->^tilde ZZ\/n$. In this sense the generalised Hilbert symbol can be interpreted as a map
   $
-    H^1(K,ZZ\/n) times K^times\/K^(times n) --> ZZ\/n,
+    H^1(K,ZZ\/n) & times & K^times\/K^(times n) & --> ZZ\/n, \
+    chi &, & b & mapsto.long (chi,b)_K = "inv"(chi smile delta(b)),
   $
   that pairs characters of the Galois group and elements of $K$.
 
-  Moreover, when the roots of unity are contained in the field $mu_n subset K$ we can fix an isomorphism $mu_n tilde.eq ZZ\/n$ by choosing a root $omega in mu_n$. This gives the generalised Hilbert symbol an even closer resemblance to its original counterpart, as it becomes a map
+  Moreover, when the roots of unity are contained in the field $mu_n subset K$ we can fix an isomorphism $mu_n tilde.eq ZZ\/n$ by choosing a root $omega in mu_n$. This gives the generalised Hilbert symbol an even closer resemblance to its original counterpart, as it becomes the map
   $
-    K^times\/K^(times n) times K^times\/K^(times n) --> mu_n.
+    K^times\/K^(times n) & times & K^times\/K^(times n) & --> mu_n, \
+    a &, & b & mapsto.long (a,b)_K = omega^("inv"(delta(a) smile delta(b))).
   $
   This is effectively a map that pairs two elements of $K$ with values in $mu_n$.
   Notice that by fixing the same isomorphism where we substituted $mu_n tilde.eq ZZ\/n$ the final map does not depend on the choice of $omega$.
+
+  Both symbols $(chi, b)_K$ and $(a,b)_K$ are bilinear, moreover from the graded commutativity of cup-products the latter is also anti-commutative:
+  $
+    (a,b)_K = - (b,a)_K.
+  $
 ]
 
 #proposition[
   Suppose $chi in H^1(K,ZZ\/n ZZ)$ corresponds to a surjective character $"Gal"(K_s|K) ->> ZZ\/n ZZ$ (by eventually making $n$ smaller we can always find such a surjective character), let $L$ be the fixed field for $ker chi$. If $b in K^times$ then
   $
-    (chi,b) = 1 <==> b in N_(L|K) (L^times).
+    (chi,b)_K = 0 <==> b in N_(L|K) (L^times).
   $
-]
+] <prop:hilbert-symbol-norm>
 
 From this proposition we recover the classical Hilbert symbol, making the generalised Hilbert symbol effectively a generalisation of the former.
 If $n = 2$ we have ${plus.minus 1} = mu_n subset K$ and $L = K(sqrt(a))$ for some $a in K$. We get
 $
-  (chi,b) = 1 & <==> b in N_(L|K) (L^times) \
+  (chi,b)_K = 1 & <==> b in N_(L|K) (L^times) \
   & <==> b = N(x + sqrt(a) y) = x^2 + a y^2 \
   & <==> x^2 + a y^2 - b z^2 = 0 "has a non-trivial solution"
 $
 that is exactly the definition of the classical Hilbert symbol when $K = QQ_p$.
 
 #proof[
+  Let $G := "Gal"(L|K)$, the character $chi$ induces an isomorphism $tilde(chi) : G ->^tilde ZZ\/n ZZ$.
+  Let $d$ be the connecting map extracted from the Galois cohomology of the short exact sequence $0 -> ZZ ->^n ZZ -> ZZ\/n ZZ -> 0$; let $delta : K^times -> H^1(K,mu_n)$ be the map from Kummer theory. The following diagram commutes:
+// https://q.uiver.app/#r=typst&q=WzAsOCxbMSwwLCJIXjEoSyxtdV9uKSJdLFsyLDAsIkheMihLLG11X24pIl0sWzAsMCwiSF4xKEssWlpcXC9uIFpaKSJdLFszLDAsIm5cIkJyXCIoSykiXSxbMSwxLCJIXjAoSyxLX3NedGltZXMpIl0sWzIsMSwiSF4yKEssS19zXnRpbWVzKSJdLFswLDEsIkheMihLLFpaKSJdLFszLDEsIlwiQnJcIihLKSJdLFswLDEsInNtaWxlIl0sWzIsMCwidGltZXMiLDEseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJub25lIn0sImhlYWQiOnsibmFtZSI6Im5vbmUifX19XSxbMSwzLCJ0aWxkZS5lcSIsMSx7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6Im5vbmUifSwiaGVhZCI6eyJuYW1lIjoibm9uZSJ9fX1dLFs0LDUsInNtaWxlIl0sWzYsNCwidGltZXMiLDEseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJub25lIn0sImhlYWQiOnsibmFtZSI6Im5vbmUifX19XSxbNSw3LCJ0aWxkZS5lcSIsMSx7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6Im5vbmUifSwiaGVhZCI6eyJuYW1lIjoibm9uZSJ9fX1dLFsyLDYsImQiXSxbNCwwLCJkZWx0YSIsMl0sWzEsNSwiIiwxLHsic3R5bGUiOnsidGFpbCI6eyJuYW1lIjoiaG9vayIsInNpZGUiOiJ0b3AifX19XSxbMyw3LCIiLDEseyJzdHlsZSI6eyJ0YWlsIjp7Im5hbWUiOiJob29rIiwic2lkZSI6InRvcCJ9fX1dXQ==
+#align(center, diagram({
+	node((-2, -1), [$H^1(K,mu_n)$])
+	node((-1, -1), [$H^2(K,mu_n)$])
+	node((-3, -1), [$H^1(K,ZZ\/n ZZ)$])
+	node((0, -1), [$attach("Br"(K), bl: n)$])
+	node((-2, 0), [$H^0(K,K_s^times) = K^times$])
+	node((-1, 0), [$H^2(K,K_s^times)$])
+	node((-3, 0), [$H^2(K,ZZ)$])
+	node((0, 0), [$"Br"(K)$])
+	edge((-2, -1), (-1, -1), [$smile$], label-side: left, "->")
+	edge((-3, -1), (-2, -1), [$times$], label-side: center, " ")
+	edge((-1, -1), (0, -1), [$tilde.eq$], label-side: center, " ")
+	edge((-2, 0), (-1, 0), [$smile$], label-side: left, "->")
+	edge((-3, 0), (-2, 0), [$times$], label-side: center, " ")
+	edge((-1, 0), (0, 0), [$tilde.eq$], label-side: center, " ")
+	edge((-3, -1), (-3, 0), [$d$], label-side: left, "->")
+	edge((-2, 0), (-2, -1), [$delta$], label-side: right, "->")
+	edge((-1, -1), (-1, 0), "hook->")
+	edge((0, -1), (0, 0), "hook->")
+}))
+  In particular we have $chi smile delta(b) = d(chi) smile b$.
   
+  The character $chi$ only depends on its quotient $tilde(chi)$ in the sense we're going to see now. We know $H^1(L,ZZ) = 0$, as in general if $hat(G)$ is a profinite group, then
+  $
+  H^1(hat(G),ZZ) = "Hom"_"cont" (hat(G),ZZ) = 0.
+  $
+  Moreover from #link(<missing-ref>)[Hilbert's 90] we know $H^1(L,K_s^times) = 0$. From #ref(<prop:restriction-inflation-sequence>) we get the following commutative diagram:
+// https://q.uiver.app/#r=typst&q=WzAsNixbMSwwLCJIXjAoSyxLX3NedGltZXMpIl0sWzIsMCwiSF4yKEssS19zXnRpbWVzKSJdLFswLDAsIkheMihLLFpaKSJdLFsxLDEsIkheMChHLExedGltZXMpIl0sWzIsMSwiSF4yKEcsTF50aW1lcykiXSxbMCwxLCJIXjIoRyxaWikiXSxbMCwxLCJzbWlsZSJdLFsyLDAsInRpbWVzIiwxLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoibm9uZSJ9LCJoZWFkIjp7Im5hbWUiOiJub25lIn19fV0sWzMsNCwic21pbGUiXSxbNSwzLCJ0aW1lcyIsMSx7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6Im5vbmUifSwiaGVhZCI6eyJuYW1lIjoibm9uZSJ9fX1dLFs1LDIsIlwiSW5mXCIiLDIseyJzdHlsZSI6eyJ0YWlsIjp7Im5hbWUiOiJob29rIiwic2lkZSI6InRvcCJ9fX1dLFszLDAsIiIsMix7InN0eWxlIjp7InRhaWwiOnsibmFtZSI6Imhvb2siLCJzaWRlIjoidG9wIn19fV0sWzQsMSwiXCJJbmZcIiIsMix7InN0eWxlIjp7InRhaWwiOnsibmFtZSI6Imhvb2siLCJzaWRlIjoidG9wIn19fV1d
+#align(center, diagram({
+	node((-2, 0), [$H^0(K,K_s^times)$])
+	node((-1, 0), [$H^2(K,K_s^times)$])
+	node((-3, 0), [$H^2(K,ZZ)$])
+	node((-2, 1), [$H^0(G,L^times)$])
+	node((-1, 1), [$H^2(G,L^times)$])
+	node((-3, 1), [$H^2(G,ZZ)$])
+	edge((-2, 0), (-1, 0), [$smile$], label-side: left, "->")
+	edge((-3, 0), (-2, 0), [$times$], label-side: center, " ")
+	edge((-2, 1), (-1, 1), [$smile$], label-side: left, "->")
+	edge((-3, 1), (-2, 1), [$times$], label-side: center, " ")
+	edge((-3, 1), (-3, 0), [$"Inf"$], label-side: right, "hook->")
+	edge((-2, 1), (-2, 0), [$"id"$], label-side: right, "hook->")
+	edge((-1, 1), (-1, 0), [$"Inf"$], label-side: right, "hook->")
+}))
+  Since the vertical maps are injective we can interpret the lower cup-product as a restriction of the upper one. Under this identification $d tilde(chi)$ is an element of $H^2(G,ZZ)$ since $chi$ is trivial on $"Gal"(K_s|L)$. Moreover since $G$ is cyclic from #ref(<lemma:brauer>) we have $H^2(G,L^times) tilde.eq "Br"(L|K) tilde.eq K^times \/ N_(L|K)(L^times)$. We therefore construct the map
+  $
+    K^times = H^0(K,K_s^times) & --> & H^2(G,L^times) & -->^tilde K^times \/ N_(L|K)(L^times), \
+    a & mapsto.long & d(tilde(chi)) smile a & mapsto.long overline(a).
+  $
+  One can check this is exactly the quotient map. We deduce the chain of equivalences
+  $
+    (chi,b)_K = 0 <==> d(chi) smile b = 0 <==> overline(b) = 0 in K^times \/ N_(L|K)(L^times) <==> b in N_(L|K)(L^times).
+  $
 ]
+
+#remark[
+  With the same notation as the proposition, suppose $L|K$ is an unramified extension. Let $lambda|kappa$ be the corresponding residue field extension, let $q = |kappa|$. We have a canonical isomorphism
+  $
+    G = "Gal"(L|K) & -->^tilde "Gal"(lambda|kappa), \
+    F & mapsto.long [x mapsto x^q].
+  $
+  In other words, the map $F$ is the lift of the Frobenius in the extension upstairs.
+]
+
+#proposition[
+  Let $v : K^times -> ZZ$ be the valuation on $K$. If $L|K$ is unramified, then for every $b in K^times$ we have
+  $
+    (chi,b)_K = tilde(chi) (F^(v(b))),
+  $
+  where $F in "Gal"(L|K)$ is the lift of the Frobenius map. 
+] <prop:hilbert-symbol-frobenius>
+
+#proof[
+  With the same notation in the proof of #ref(<prop:hilbert-symbol-norm>), we have
+  $
+    (chi,b)_K := "inv"(chi smile delta(b)) = "inv"(d(chi) smile b).
+  $
+  As before, it is enough to consider at the level of the quotient $G := "Gal"(L|K)$.
+
+  Since $G tilde.eq ZZ\/n ZZ$ we have $H^1(G,QQ\/ZZ) tilde.eq H^1(G,ZZ\/n ZZ)$ and the map $d : H^1(G,QQ\/ZZ) -> H^2(G,ZZ)$ is exactly the map in the proof of #ref(<prop:hilbert-symbol-norm>). Moreover, it is an isomorphism:
+  $
+    0 = H^1(G,QQ) --> H^1(G,QQ\/ZZ) -->^tilde_d H^2(G,ZZ) --> H^2(G,QQ) = 0.
+  $
+  The Hasse invariant is constructed as the composition
+  $
+    H^2(G,L^times) -->^v H^2(G,ZZ) -->^(d^(-1)) H^1(G,QQ\/ZZ) & -->^tilde QQ\/ZZ, \
+    psi & mapsto.long psi(F).
+  $
+  From the functoriality of the cup-product the following diagram to compute the Hilbert symbol commutes:
+// https://q.uiver.app/#r=typst&q=WzAsNixbMSwwLCJIXjAoRyxMXnRpbWVzKSJdLFsyLDAsIkheMihHLExedGltZXMpIl0sWzAsMCwiSF4yKEcsWlopIl0sWzEsMSwiSF4wKEcsWlopPVpaIl0sWzIsMSwiSF4yKEcsWlopIl0sWzAsMSwiSF4yKEcsWlopIl0sWzAsMSwic21pbGUiXSxbMiwwLCJ0aW1lcyIsMSx7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6Im5vbmUifSwiaGVhZCI6eyJuYW1lIjoibm9uZSJ9fX1dLFszLDQsInNtaWxlIl0sWzUsMywidGltZXMiLDEseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJub25lIn0sImhlYWQiOnsibmFtZSI6Im5vbmUifX19XSxbNSwyLCI9IiwxLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoibm9uZSJ9LCJoZWFkIjp7Im5hbWUiOiJub25lIn19fV0sWzAsMywidiJdLFsxLDQsInYiXV0=
+#align(center, diagram({
+	node((-2, 0), [$H^0(G,L^times)$])
+	node((-1, 0), [$H^2(G,L^times)$])
+	node((-3, 0), [$H^2(G,ZZ)$])
+	node((-2, 1), [$H^0(G,ZZ)=ZZ$])
+	node((-1, 1), [$H^2(G,ZZ)$])
+	node((-3, 1), [$H^2(G,ZZ)$])
+	edge((-2, 0), (-1, 0), [$smile$], label-side: left, "->")
+	edge((-3, 0), (-2, 0), [$times$], label-side: center, " ")
+	edge((-2, 1), (-1, 1), [$smile$], label-side: left, "->")
+	edge((-3, 1), (-2, 1), [$times$], label-side: center, " ")
+	edge((-3, 1), (-3, 0), [$=$], label-side: center, " ")
+	edge((-2, 0), (-2, 1), [$v$], label-side: left, "->")
+	edge((-1, 0), (-1, 1), [$v$], label-side: left, "->")
+}))
+  The cup-product below is exactly the multiplication map.
+  We get
+  $
+    (chi,b)_K = "inv"(d(tilde(chi)) smile b) = d^(-1)(v(b) dot d(tilde(chi)))(F) = tilde(chi)^(v(b))(F) = tilde(chi)(F^(v(b))).
+  $
+]
+
+#proposition(title: "explicit formula for the generalised Hilbert symbol")[
+  Suppose that $n$ is prime with $q = |kappa|$ and that $K$ contatins the $n$-th roots of unity $mu_n$. For every $a,b in K^times\/K^(times n)$ we have
+  $
+    (a,b)_K = [overline((-1)^(v(a) v(b)) a^(v(b)) b^(-v(a)))]^((q-1)/n),
+  $
+  where for every $c in cal(U)_K$ the term $overline(c) in mu_(q-1) tilde.eq kappa^times$ is the reduction of $c$ in the residue field $kappa$.
+]
+
+#remark[
+  Since $mu_n subset K^times$ we also have $mu_n subset kappa^times$, hence $n | q - 1$. The exponent $(q-1)\/ n$ in the above formula is an integer.
+]
+
+#remark[
+  The map
+  $
+    (a,b) mapsto.long overline((-1)^(v(a) v(b)) a^(v(b)) b^(-v(a)))
+  $
+  is called the #term[tame symbol].
+]
+
+#proof[
+  Fix a uniformiser $pi in K^times$, that is $v(pi) = 1$. Every element $a in K^times$ can be written uniquely as $a = u pi^r$, for some $u in cal(U)_K$ and $r in ZZ$. Since both sides of the formula are bi-multiplicative and anti-commutative we reduce ourselves to $a,b in cal(U)_K union {pi}$.
+  
+  Recall $mu_n subset K$. If $u$ is a unit, then $K(root(n,u))|K$ is an abelian Kummer extension. We have an isomorphism
+  $
+    K^times \/ K^(times n) & -->^tilde H^1(K,ZZ\/n ZZ) tilde.eq H^1(K,mu_n), \
+    u & mapsto.long [chi_u : sigma |-> sigma(root(n,u)) \/ root(n,u)].
+  $
+  Each character $chi_u$ factorizes through $chi_u : "Gal"(K_s|K) ->> "Gal"(K(root(n,u))|K) -> ZZ\/n ZZ$. Moreover, the extension $K(root(n,u))|K$ is unramified: the extension $kappa(root(n,u))|kappa$ is an abelian Kummer extension of the same degree and we can lift $n$-powers using #ref(<prop:hensel-lemma>).
+  We can apply #ref(<prop:hilbert-symbol-frobenius>), we get:
+  - #boxed[$a,b in cal(U)_K$] Since $v(b) = 0$,
+    $
+      (a,b)_K = chi_a(F^(v(b))) = 1.
+    $
+  - #boxed[$a in cal(U)_K, b=pi$]
+    $
+    (a,pi)_K = chi_a (F) = chi_overline(a) (x|-> x^q) = root(n,overline(a))^q \/ root(n,overline(a)) = overline(a)^((q-1) / n).
+    $
+  - #boxed[$a = b = pi$] From anti-commutativity we have $(pi,pi)_K = (pi,pi)_K^(-1)$, yielding $(pi,pi)_K = 1$.
+]
+
+#proposition[
+  Let $K|QQ_p$ be a finite extension and let $G := "Gal"(K_s|K)$. For all $n > 0$ we have
+  $
+    lr(|G_K^"ab" \/ n|) < infinity.
+  $
+] <prop:absolute-galois-abelian-torsion-finite>
+
+#remark[
+  Until this proposition, everything we've seen holds for any complete discretely valuated field with finite residue. #ref(<prop:absolute-galois-abelian-torsion-finite>) requires the stronger $K|QQ_p$ hypothesis, indeed it does not hold for $K = FF_q ((t))$ in general (but it does hold when $n$ and $q$ are coprime).
+]
+
+#proof[
+  It is enough to prove the dual $H^1(K,ZZ\/n ZZ) tilde.eq "Hom"(G_K^"ab"\/n,ZZ\/n ZZ)$ is finite (this is the usual argument obtained by embedding an object in its bi-dual).
+
+  Consider the finite extension $K(mu_n)|K$, there is an exact sequence
+  $
+    0 --> H^1("Gal"(K(mu_n)|K),ZZ\/n ZZ) -->^"Inf" H^1(K,ZZ\/n ZZ) -->^"Res" H^1(K(mu_n),ZZ\/n ZZ).
+  $
+  Since the first term is finite, it is enough to prove $H^1(K(mu_n),ZZ\/n ZZ)$ is finite. From exactness we deduce the finiteness of the middle term.
+
+  We have
+  $
+    H^1(K(mu_n),ZZ\/n ZZ) tilde.eq H^1(K(mu_n),mu_n) tilde.eq K(mu_n)^times \/ K(mu_n)^(times n),
+  $
+  the latter is indeed finite as seen in #ref(<example:finite-unit-quotient>).
+]
+
+#corollary[
+  $
+    G_K^"ab" = lim_<-- G_K^"ab" \/n.
+  $
+]
+
+#proof[
+  If $U subset G_K^"ab"$ is an open subset with finite index $n$ it contains $n dot G_K^"ab"$. The latter is compact, as it is the image under the continuous map $dot n$ of the compact $G_K^"ab"$. Compact sets in Hausdorff spaces are closed and profinite groups are by definition Hausdorff.
+  Therefore $n dot G_K^"ab"$ is closed and has finite index, hence it is open. This shows the subgroups $n dot G_K^"ab"$ are cofinal among the open subgroups.
+]
+
+== Local reciprocity
+
