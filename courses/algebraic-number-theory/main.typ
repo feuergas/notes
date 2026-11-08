@@ -20,9 +20,9 @@
 
 #include "chapters/cohomology.typ"
 
-= $p$-adic number fields
+= Local class field theory
 
-#include "chapters/padic-extensions.typ"
+#include "chapters/local-cft.typ"
 
 
 

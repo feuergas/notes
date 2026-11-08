@@ -1,5 +1,7 @@
 #import "../prelude.typ": *
 
+#text(fill: red)[brief introduction of what are local fields and which ones we are studying (non-Archimedean $"char" 0$ ones)].
+
 #definition(title: "Brauer group")[
   Let $k$ be a field and $k_s$ be one of its separable closures. The #term[Brauer group] of $k$ is
   $
@@ -50,9 +52,7 @@ for every $a in K^times$.
     Let $omega$ be a generator of $FF_(q^r)^times$, its norm $N(omega)$ by the above calculation has order $q-1$ and therefore generates $FF_q$. This shows $N$ is surjective and from #ref(<lemma:brauer>) we deduce $"Br"(FF_(q^r)|FF_q) = 0$.
 ]
 
-== The path to $K|QQ_p$
-
-The main goal of this section is proving that if $K|QQ_p$ is a $p$-adic number field then its Brauer group is $"Br"(K) = QQ \/ ZZ$.
+== Structure of the multiplicative groups
 
 #definition(title: "Discretely valuated fields")[
   A #term[discretely valuated field] is a field equipped with a discrete valuation $v : K -> ZZ union {infinity}$, i.e. it holds
@@ -167,8 +167,7 @@ this filtration can be useful to prove properties of the multiplicative group $K
 
 == The Hasse invariant
 
-The goal of this section is to prove the Hasse theorem on Brauer groups of complete discretely valuated fields with finite residue field. In particular, this applies to finite $p$-adic extensions $K|QQ_p$. We then proceed to use this result to define the Hasse invariant map, that underlies the generalization of the Hilbert symbol.
-#text(fill: red)[to be updated.]
+The goal of this section is to prove the Hasse theorem for Brauer groups of complete discretely valued fields with finite residue field, a result that applies in particular to finite extensions $K|QQ_p$. We then introduce the Hasse invariant map, which provides the foundation for a generalisation of the Hilbert symbol.
 
 The main result is that in the discussed hypothesis $"Br"(K) tilde.eq QQ \/ ZZ$. We divide the proof in two steps: we first prove $"Br"(K_"nr"|K) tilde.eq QQ \/ ZZ$, secondly we show $"Br"(K_"nr"|K) = "Br"(K)$.
 
@@ -532,7 +531,7 @@ This fact is in general true for any complete discretely valuated field, however
   $
 ]
 
-== The generalised Hilbert symbol
+== Generalising the Hilbert symbol
 
 #definition(title: "Hilbert symbol")[
   Let $(n,"char" K) = 1$. The #term[Hilbert symbol] is defined as the map
